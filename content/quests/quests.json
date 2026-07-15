@@ -1,0 +1,50 @@
+{
+  "quests": [
+    {
+      "id": "quest_meet_guide",
+      "title_key": "quest.meet_guide.title",
+      "desc_key": "quest.meet_guide.desc",
+      "require_flags": {},
+      "objectives": [
+        { "type": "talk", "target": "npc_guide", "count": 1 }
+      ],
+      "reward_flags": {
+        "met_guide": 1
+      },
+      "unlocks": ["quest_reach_marker"],
+      "auto_start_when_available": true
+    },
+    {
+      "id": "quest_reach_marker",
+      "title_key": "quest.reach_marker.title",
+      "desc_key": "quest.reach_marker.desc",
+      "require_flags": {
+        "met_guide": 1
+      },
+      "objectives": [
+        { "type": "reach", "target": "marker_overlook", "count": 1 }
+      ],
+      "reward_flags": {
+        "seen_overlook": 1
+      },
+      "unlocks": ["quest_return_guide"],
+      "auto_start_when_available": true
+    },
+    {
+      "id": "quest_return_guide",
+      "title_key": "quest.return_guide.title",
+      "desc_key": "quest.return_guide.desc",
+      "require_flags": {
+        "seen_overlook": 1
+      },
+      "objectives": [
+        { "type": "talk", "target": "npc_guide", "count": 1 }
+      ],
+      "reward_flags": {
+        "slice_complete": 1
+      },
+      "unlocks": [],
+      "auto_start_when_available": true
+    }
+  ]
+}

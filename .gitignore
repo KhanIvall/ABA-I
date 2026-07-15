@@ -1,0 +1,37 @@
+# Godot 4+
+.godot/
+.import/
+export.cfg
+export_presets.cfg
+*.translation
+
+# Godot C# / .NET
+.mono/
+data_*/
+mono_crash.*.json
+bin/
+obj/
+*.csproj.user
+*.sln.docstates
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# Builds
+builds/
+dist/
+*.exe
+*.pck
+*.zip
+!locales/*.csv
+
+# Local engine tools
+tools/

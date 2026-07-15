@@ -1,0 +1,29 @@
+keys,es,en
+ui.menu.title,ABA-I,ABA-I
+ui.menu.new_game,Nueva partida,New game
+ui.menu.load_game,Cargar partida,Load game
+ui.menu.language,Idioma: Español,Language: English
+ui.menu.quit,Salir,Quit
+ui.menu.prototypes,Prototipos de vista,View prototypes
+ui.menu.proto_side,Plataformas (lateral),Side-scroller
+ui.menu.proto_topdown,Cenital (arriba),Top-down
+ui.pause.title,Pausa,Paused
+ui.pause.resume,Continuar,Resume
+ui.pause.save,Guardar,Save
+ui.pause.language,Cambiar idioma,Change language
+ui.pause.menu,Menú principal,Main menu
+ui.hud.interact,[E] Hablar,[E] Talk
+ui.hud.quests,Misiones,Quests
+ui.hud.mode_side,Modo: lateral,Mode: side
+ui.hud.mode_topdown,Modo: cenital,Mode: top-down
+ui.dialogue.continue,[E] Continuar,[E] Continue
+dialog.guide.hello,Hola. Explora el pueblo; habla conmigo cuando quieras una pista.,Hello. Explore the village; talk to me if you want a hint.
+dialog.guide.after_meet,Ve al mirador del norte y vuelve.,Go to the north overlook and come back.
+dialog.guide.after_overlook,Bien. El bucle básico ya funciona. Guarda con Esc cuando quieras.,Good. The basic loop works. Save with Esc whenever you want.
+dialog.guide.done,Cuando quieras, añade más misiones en content/quests.,When you want, add more quests under content/quests.
+quest.meet_guide.title,Conoce al guía,Meet the guide
+quest.meet_guide.desc,Habla con el guía del pueblo.,Talk to the village guide.
+quest.reach_marker.title,Visita el mirador,Visit the overlook
+quest.reach_marker.desc,Llega al marcador del norte.,Reach the north marker.
+quest.return_guide.title,Vuelve con el guía,Return to the guide
+quest.return_guide.desc,Cuéntale al guía lo que viste.,Tell the guide what you saw.

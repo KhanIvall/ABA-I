@@ -116,6 +116,7 @@ public partial class MapBootstrap : Node
 		margin.AddThemeConstantOverride("margin_right", 16);
 		margin.AddThemeConstantOverride("margin_bottom", 16);
 		var vbox = new VBoxContainer { Name = "VBox" };
+		vbox.AddChild(new Label { Name = "Controls" });
 		vbox.AddChild(new Label { Name = "Quests" });
 		vbox.AddChild(new Label { Name = "Mode" });
 		margin.AddChild(vbox);

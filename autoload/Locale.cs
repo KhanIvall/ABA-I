@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Godot;
 
@@ -9,29 +10,38 @@ public partial class Locale : Node
 	public const string Spanish = "es";
 	public const string English = "en";
 
+	public event Action<string>? LanguageChanged;
+
 	private readonly Dictionary<string, Dictionary<string, string>> _table = new();
 	private string _language = Spanish;
 
 	public string Language
 	{
 		get => _language;
-		set
-		{
-			if (value != Spanish && value != English)
-				return;
-			_language = value;
-			TranslationServer.SetLocale(value);
-			EmitSignal(SignalName.LanguageChanged, value);
-		}
+		set => SetLanguage(value, notify: true);
 	}
 
-	[Signal]
-	public delegate void LanguageChangedEventHandler(string language);
+	/// <summary>Apply language from a save without notifying UI mid-scene-change.</summary>
+	public void SetLanguageSilent(string language) => SetLanguage(language, notify: false);
+
+	private void SetLanguage(string value, bool notify)
+	{
+		if (value != Spanish && value != English)
+			return;
+		if (_language == value)
+			return;
+
+		_language = value;
+		TranslationServer.SetLocale(value);
+		if (notify)
+			LanguageChanged?.Invoke(value);
+	}
 
 	public override void _Ready()
 	{
 		LoadCsv("res://locales/strings.csv");
-		Language = Spanish;
+		_language = Spanish;
+		TranslationServer.SetLocale(Spanish);
 	}
 
 	public string TrKey(string key)

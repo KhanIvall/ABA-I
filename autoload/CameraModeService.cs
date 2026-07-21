@@ -5,8 +5,7 @@ namespace ABAI;
 /// <summary>Global camera/movement mode. Zones and maps set this; PlayerController reads it.</summary>
 public partial class CameraModeService : Node
 {
-	[Signal]
-	public delegate void ModeChangedEventHandler(int mode);
+	public event System.Action<int>? ModeChanged;
 
 	private CameraMode _mode = CameraMode.TopDown;
 
@@ -18,7 +17,7 @@ public partial class CameraModeService : Node
 			if (_mode == value)
 				return;
 			_mode = value;
-			EmitSignal(SignalName.ModeChanged, (int)value);
+			ModeChanged?.Invoke((int)value);
 		}
 	}
 

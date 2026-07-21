@@ -37,9 +37,17 @@ public partial class MainMenu : Control
 		_protoTop.Pressed += () => GetTree().ChangeSceneToFile("res://maps/PrototypeTopDown.tscn");
 
 		_loadGame.Disabled = !_save.HasSave();
-		_locale.LanguageChanged += _ => RefreshTexts();
+		_locale.LanguageChanged += OnLanguageChanged;
 		RefreshTexts();
 	}
+
+	public override void _ExitTree()
+	{
+		if (_locale != null)
+			_locale.LanguageChanged -= OnLanguageChanged;
+	}
+
+	private void OnLanguageChanged(string _) => RefreshTexts();
 
 	private void OnNewGame()
 	{
@@ -51,17 +59,23 @@ public partial class MainMenu : Control
 	{
 		if (!_save.TryLoadGame())
 			return;
-		GetTree().ChangeSceneToFile(_save.LastScenePath);
+
+		var scene = string.IsNullOrEmpty(_save.LastScenePath)
+			? "res://maps/Village.tscn"
+			: _save.LastScenePath;
+		GetTree().ChangeSceneToFile(scene);
 	}
 
 	private void OnLanguage()
 	{
 		_locale.ToggleLanguage();
-		RefreshTexts();
 	}
 
 	private void RefreshTexts()
 	{
+		if (!IsInsideTree() || !IsInstanceValid(this))
+			return;
+
 		_title.Text = _locale.TrKey("ui.menu.title");
 		_newGame.Text = _locale.TrKey("ui.menu.new_game");
 		_loadGame.Text = _locale.TrKey("ui.menu.load_game");

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Godot;
 
@@ -6,8 +7,7 @@ namespace ABAI;
 /// <summary>World progress flags (ints). Decoupled from UI and level scenes.</summary>
 public partial class WorldFlags : Node
 {
-	[Signal]
-	public delegate void FlagChangedEventHandler(string key, int value);
+	public event Action<string, int>? FlagChanged;
 
 	private readonly Dictionary<string, int> _flags = new();
 
@@ -19,7 +19,7 @@ public partial class WorldFlags : Node
 	public void Set(string key, int value)
 	{
 		_flags[key] = value;
-		EmitSignal(SignalName.FlagChanged, key, value);
+		FlagChanged?.Invoke(key, value);
 	}
 
 	public void Add(string key, int delta = 1) => Set(key, Get(key) + delta);

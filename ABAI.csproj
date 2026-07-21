@@ -5,5 +5,18 @@
     <RootNamespace>ABAI</RootNamespace>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <!-- NuGet Godot.SourceGenerators is blocked by Windows Smart App Control (unsigned). -->
+    <DisableImplicitGodotGeneratorReferences>true</DisableImplicitGodotGeneratorReferences>
+    <DefaultItemExcludes>$(DefaultItemExcludes);tools\**</DefaultItemExcludes>
   </PropertyGroup>
+  <ItemGroup>
+    <!-- Pass Godot MSBuild properties into the local source generators. -->
+    <CompilerVisibleProperty Include="GodotDisabledSourceGenerators" />
+    <CompilerVisibleProperty Include="GodotProjectDir" />
+    <CompilerVisibleProperty Include="GodotProjectDirBase64" />
+    <CompilerVisibleProperty Include="GodotSourceGenerators" />
+    <CompilerVisibleProperty Include="IsGodotToolsProject" />
+    <!-- Use locally built generator (Smart App Control allows locally compiled DLLs). -->
+    <Analyzer Include="tools\LocalGodotGenerators\bin\Release\netstandard2.0\Godot.SourceGenerators.dll" />
+  </ItemGroup>
 </Project>

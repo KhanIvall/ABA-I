@@ -27,22 +27,21 @@ public partial class PauseMenu : CanvasLayer
 
 		_resume.Pressed += Close;
 		_save.Pressed += OnSave;
-		_language.Pressed += () =>
-		{
-			_locale.ToggleLanguage();
-			RefreshTexts();
-		};
-		_menu.Pressed += () =>
-		{
-			GetTree().Paused = false;
-			GetTree().ChangeSceneToFile("res://ui/MainMenu.tscn");
-		};
+		_language.Pressed += OnLanguage;
+		_menu.Pressed += OnMainMenu;
+		_locale.LanguageChanged += OnLanguageChanged;
 
 		_root.Visible = false;
 		ProcessMode = ProcessModeEnum.Always;
 		_root.ProcessMode = ProcessModeEnum.Always;
 		Layer = 30;
 		RefreshTexts();
+	}
+
+	public override void _ExitTree()
+	{
+		if (_locale != null)
+			_locale.LanguageChanged -= OnLanguageChanged;
 	}
 
 	public override void _UnhandledInput(InputEvent @event)
@@ -55,6 +54,16 @@ public partial class PauseMenu : CanvasLayer
 				Open();
 			GetViewport().SetInputAsHandled();
 		}
+	}
+
+	private void OnLanguageChanged(string _) => RefreshTexts();
+
+	private void OnLanguage() => _locale.ToggleLanguage();
+
+	private void OnMainMenu()
+	{
+		GetTree().Paused = false;
+		GetTree().ChangeSceneToFile("res://ui/MainMenu.tscn");
 	}
 
 	private void Open()
@@ -75,13 +84,18 @@ public partial class PauseMenu : CanvasLayer
 	private void OnSave()
 	{
 		var player = GetTree().GetFirstNodeInGroup("player") as Node2D;
-		var scene = GetTree().CurrentScene?.SceneFilePath ?? "res://maps/Village.tscn";
+		var scene = GetTree().CurrentScene?.SceneFilePath;
+		if (string.IsNullOrEmpty(scene))
+			scene = "res://maps/Village.tscn";
 		var pos = player?.GlobalPosition ?? Vector2.Zero;
 		_saveSystem.SaveGame(scene, pos);
 	}
 
 	private void RefreshTexts()
 	{
+		if (!IsInsideTree() || !IsInstanceValid(this))
+			return;
+
 		_title.Text = _locale.TrKey("ui.pause.title");
 		_resume.Text = _locale.TrKey("ui.pause.resume");
 		_save.Text = _locale.TrKey("ui.pause.save");

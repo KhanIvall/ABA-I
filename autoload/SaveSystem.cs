@@ -72,7 +72,7 @@ public partial class SaveSystem : Node
 		LastPlayerPosition = new Vector2((float)data["player_x"], (float)data["player_y"]);
 
 		if (data.ContainsKey("language"))
-			_locale.Language = (string)data["language"];
+			_locale.SetLanguageSilent((string)data["language"]);
 
 		if (data.ContainsKey("camera_mode"))
 			_camera.Mode = (CameraMode)(int)data["camera_mode"];
@@ -88,6 +88,9 @@ public partial class SaveSystem : Node
 
 		if (data.ContainsKey("quests"))
 			_quests.LoadFrom(data["quests"].AsGodotDictionary());
+
+		if (string.IsNullOrEmpty(LastScenePath))
+			LastScenePath = "res://maps/Village.tscn";
 
 		HasPendingLoad = true;
 		return true;

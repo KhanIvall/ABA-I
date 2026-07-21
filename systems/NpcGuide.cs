@@ -15,8 +15,6 @@ public partial class NpcGuide : Area2D, IInteractable
 	{
 		_quests = GetNode<QuestManager>("/root/QuestManager");
 		_flags = GetNode<WorldFlags>("/root/WorldFlags");
-		_dialogue = GetTree().Root.FindChild("DialogueUI", true, false) as DialogueUI;
-		BodyEntered += _ => { };
 	}
 
 	public void Interact(PlayerController player)
@@ -29,9 +27,8 @@ public partial class NpcGuide : Area2D, IInteractable
 			return;
 
 		_busy = true;
-		var keys = PickDialogueKeys();
 		_dialogue.DialogueFinished += OnDialogueFinished;
-		_dialogue.ShowKeys(keys);
+		_dialogue.ShowKeys(PickDialogueKeys());
 	}
 
 	private string[] PickDialogueKeys()
@@ -49,6 +46,7 @@ public partial class NpcGuide : Area2D, IInteractable
 	{
 		if (_dialogue != null)
 			_dialogue.DialogueFinished -= OnDialogueFinished;
+
 		_quests.ReportTalk(NpcId);
 		_busy = false;
 	}

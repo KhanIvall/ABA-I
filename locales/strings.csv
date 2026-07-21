@@ -2,7 +2,7 @@ keys,es,en
 ui.menu.title,ABA-I,ABA-I
 ui.menu.new_game,Nueva partida,New game
 ui.menu.load_game,Cargar partida,Load game
-ui.menu.language,Idioma: Español,Language: English
+ui.menu.language,Idioma: ES (cambiar a EN),Language: EN (switch to ES)
 ui.menu.quit,Salir,Quit
 ui.menu.prototypes,Prototipos de vista,View prototypes
 ui.menu.proto_side,Plataformas (lateral),Side-scroller
@@ -10,16 +10,18 @@ ui.menu.proto_topdown,Cenital (arriba),Top-down
 ui.pause.title,Pausa,Paused
 ui.pause.resume,Continuar,Resume
 ui.pause.save,Guardar,Save
-ui.pause.language,Cambiar idioma,Change language
+ui.pause.language,Cambiar a inglés,Switch to Spanish
 ui.pause.menu,Menú principal,Main menu
 ui.hud.interact,[E] Hablar,[E] Talk
+ui.hud.controls,"WASD/flechas: mover | E: hablar/continuar | Esc: pausa","WASD/arrows: move | E: talk/continue | Esc: pause"
 ui.hud.quests,Misiones,Quests
+ui.hud.quests_none,(ninguna activa),(none active)
 ui.hud.mode_side,Modo: lateral,Mode: side
 ui.hud.mode_topdown,Modo: cenital,Mode: top-down
-ui.dialogue.continue,[E] Continuar,[E] Continue
-dialog.guide.hello,Hola. Explora el pueblo; habla conmigo cuando quieras una pista.,Hello. Explore the village; talk to me if you want a hint.
-dialog.guide.after_meet,Ve al mirador del norte y vuelve.,Go to the north overlook and come back.
-dialog.guide.after_overlook,Bien. El bucle básico ya funciona. Guarda con Esc cuando quieras.,Good. The basic loop works. Save with Esc whenever you want.
+ui.dialogue.continue,[E] Continuar / cerrar,[E] Continue / close
+dialog.guide.hello,Hola. Pulsa E otra vez para cerrar este diálogo. Luego ve al cuadrado verde del norte.,Hello. Press E again to close this dialogue. Then go to the green square in the north.
+dialog.guide.after_meet,Bien. Ahora llega al mirador (cuadrado verde arriba) y vuelve a hablarme.,Good. Now reach the overlook (green square up north) and talk to me again.
+dialog.guide.after_overlook,Perfecto. El bucle de prueba ya funciona. Guarda con Esc cuando quieras.,Perfect. The test loop works. Save with Esc whenever you want.
 dialog.guide.done,Cuando quieras, añade más misiones en content/quests.,When you want, add more quests under content/quests.
 quest.meet_guide.title,Conoce al guía,Meet the guide
 quest.meet_guide.desc,Habla con el guía del pueblo.,Talk to the village guide.

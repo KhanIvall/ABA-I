@@ -37,6 +37,12 @@ public partial class PlayerController : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if (IsDialogueOpen())
+		{
+			Velocity = Vector2.Zero;
+			return;
+		}
+
 		var mode = _camera.Mode;
 		if (mode == CameraMode.Side)
 			ProcessSide(delta);
@@ -48,11 +54,21 @@ public partial class PlayerController : CharacterBody2D
 
 	public override void _UnhandledInput(InputEvent @event)
 	{
-		if (@event.IsActionPressed("interact"))
-		{
-			_currentTarget?.Interact(this);
-			GetViewport().SetInputAsHandled();
-		}
+		if (!@event.IsActionPressed("interact"))
+			return;
+
+		// Dialogue owns E while open; do not steal the event.
+		if (IsDialogueOpen())
+			return;
+
+		_currentTarget?.Interact(this);
+		GetViewport().SetInputAsHandled();
+	}
+
+	private bool IsDialogueOpen()
+	{
+		var dialogue = GetTree()?.Root.FindChild("DialogueUI", true, false) as DialogueUI;
+		return dialogue != null && dialogue.IsOpen;
 	}
 
 	private void ProcessSide(double delta)
@@ -80,7 +96,6 @@ public partial class PlayerController : CharacterBody2D
 
 	private void ApplyModePhysics(CameraMode mode)
 	{
-		// Side uses gravity + floor; top-down slides freely.
 		MotionMode = mode == CameraMode.Side
 			? MotionModeEnum.Grounded
 			: MotionModeEnum.Floating;

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>10</LangVersion>
+    <Nullable>enable</Nullable>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    <AssemblyName>Godot.SourceGenerators</AssemblyName>
+    <RootNamespace>Godot.SourceGenerators</RootNamespace>
+    <IsRoslynComponent>true</IsRoslynComponent>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.8.0" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="src\AnalyzerReleases.Shipped.md" />
+    <AdditionalFiles Include="src\AnalyzerReleases.Unshipped.md" />
+  </ItemGroup>
+</Project>

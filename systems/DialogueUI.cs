@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Godot;
 
@@ -15,8 +16,7 @@ public partial class DialogueUI : CanvasLayer
 
 	public bool IsOpen => _open;
 
-	[Signal]
-	public delegate void DialogueFinishedEventHandler();
+	public event Action? DialogueFinished;
 
 	public override void _Ready()
 	{
@@ -25,9 +25,18 @@ public partial class DialogueUI : CanvasLayer
 		_label = GetNode<Label>("Panel/Margin/VBox/Text");
 		_hint = GetNode<Label>("Panel/Margin/VBox/Hint");
 		_panel.Visible = false;
-		_locale.LanguageChanged += _ => RefreshLabels();
+		_locale.LanguageChanged += OnLanguageChanged;
 		Layer = 20;
+		ProcessMode = ProcessModeEnum.Always;
 	}
+
+	public override void _ExitTree()
+	{
+		if (_locale != null)
+			_locale.LanguageChanged -= OnLanguageChanged;
+	}
+
+	private void OnLanguageChanged(string _) => RefreshLabels();
 
 	public void ShowKeys(params string[] keys)
 	{
@@ -39,7 +48,10 @@ public partial class DialogueUI : CanvasLayer
 		ShowNext();
 	}
 
-	public override void _UnhandledInput(InputEvent @event)
+	/// <summary>
+	/// Use _Input (not unhandled) so continue works even if the player also listens for E.
+	/// </summary>
+	public override void _Input(InputEvent @event)
 	{
 		if (!_open)
 			return;
@@ -66,11 +78,13 @@ public partial class DialogueUI : CanvasLayer
 	{
 		_open = false;
 		_panel.Visible = false;
-		EmitSignal(SignalName.DialogueFinished);
+		DialogueFinished?.Invoke();
 	}
 
 	private void RefreshLabels()
 	{
+		if (!IsInsideTree() || !IsInstanceValid(this) || _hint == null)
+			return;
 		_hint.Text = _locale.TrKey("ui.dialogue.continue");
 	}
 }

@@ -33,5 +33,9 @@ dist/
 *.zip
 !locales/*.csv
 
-# Local engine tools
-tools/
+# Local engine downloads / clone (keep LocalGodotGenerators)
+tools/*
+!tools/LocalGodotGenerators/
+!tools/LocalGodotGenerators/**
+tools/LocalGodotGenerators/bin/
+tools/LocalGodotGenerators/obj/

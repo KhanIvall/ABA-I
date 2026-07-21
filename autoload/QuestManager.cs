@@ -9,11 +9,8 @@ namespace ABAI;
 /// <summary>Graph-based quest manager. Content-driven; story lives in JSON + locale keys.</summary>
 public partial class QuestManager : Node
 {
-	[Signal]
-	public delegate void QuestStatusChangedEventHandler(string questId, int status);
-
-	[Signal]
-	public delegate void QuestsUpdatedEventHandler();
+	public event Action<string, int>? QuestStatusChanged;
+	public event Action? QuestsUpdated;
 
 	private readonly Dictionary<string, QuestRuntime> _quests = new();
 	private WorldFlags _flags = null!;
@@ -63,7 +60,7 @@ public partial class QuestManager : Node
 			quest.Progress.Clear();
 		}
 		RefreshAvailability();
-		EmitSignal(SignalName.QuestsUpdated);
+		QuestsUpdated?.Invoke();
 	}
 
 	public Dictionary<string, Godot.Collections.Dictionary> Snapshot()
@@ -110,7 +107,7 @@ public partial class QuestManager : Node
 		}
 
 		RefreshAvailability();
-		EmitSignal(SignalName.QuestsUpdated);
+		QuestsUpdated?.Invoke();
 	}
 
 	private void LoadCatalog(string path)
@@ -167,7 +164,7 @@ public partial class QuestManager : Node
 			}
 		}
 
-		EmitSignal(SignalName.QuestsUpdated);
+		QuestsUpdated?.Invoke();
 	}
 
 	private void ReportProgress(QuestObjectiveType type, string target, int amount)
@@ -187,7 +184,7 @@ public partial class QuestManager : Node
 			TryCompleteIfDone(quest);
 		}
 
-		EmitSignal(SignalName.QuestsUpdated);
+		QuestsUpdated?.Invoke();
 	}
 
 	private void TryCompleteIfDone(QuestRuntime quest)
@@ -244,5 +241,5 @@ public partial class QuestManager : Node
 		};
 
 	private void EmitStatus(QuestRuntime quest) =>
-		EmitSignal(SignalName.QuestStatusChanged, quest.Def.Id, (int)quest.Status);
+		QuestStatusChanged?.Invoke(quest.Def.Id, (int)quest.Status);
 }

@@ -5,7 +5,8 @@
 **Idiomas:** Español (por defecto) + inglés  
 **Estado actual:** Vertical slice jugable (pueblo, misiones en grafo, diálogo, guardar, prototipos de vista)
 
-Este documento sirve para planificar el trabajo del hobbie por fases. No define la historia: tú la escribes; el código solo consume datos (`content/`, `locales/`).
+Este documento sirve para planificar el trabajo del hobbie por fases.  
+**Intenciones de historia y mecánicas de contenido:** ver [`DESIGN_INTENT.md`](DESIGN_INTENT.md) (el autor define el detalle; el código consume datos).
 
 ---
 
@@ -33,7 +34,8 @@ Este documento sirve para planificar el trabajo del hobbie por fases. No define 
 
 
 **Ya cubierto en el repo:** Fase 0 (base), Fase 1 (prototipos; **vista = cenital**), Fase 2 (slice).  
-**Siguiente foco (diseño, no código aún):** mapas, personajes e historia. Fase 3 en código cuando lo indiques.
+**Visión de contenido:** [`DESIGN_INTENT.md`](DESIGN_INTENT.md) — prólogo Northern Continent → Mangai / Lhikan → Kanohi Dragon.  
+**Siguiente foco (diseño, no código aún):** definir el capítulo prólogo (mapa, misión Main, eventos). Fase 3 en código cuando lo indiques.
 
 ```mermaid
 flowchart LR
@@ -352,11 +354,12 @@ No es requisito del hobbie. Elige como máximo 1–2 ítems:
 
 Anota aquí lo que surja, sin obligarte:
 
-- 
-
-- 
-
-- 
+- Kanohi como ítems + poderes (ver `DESIGN_INTENT.md`)
+- Poderes elementales del Toa jugable
+- Mecánica de búsqueda (misiones / coleccionables / eventos)
+- Eventos de mapa en lugar de side quests lineales
+- Cap. prólogo: Northern Continent (a definir)
+- Más Toa jugables además de Lhikan (más adelante)
 
 ---
 
@@ -368,6 +371,7 @@ Anota aquí lo que surja, sin obligarte:
 | 2026-07-15 | Stack = Godot 4 + C# (Opción B)           | Tipado + motor ligero para hobbie          |
 | 2026-07-15 | Vertical slice híbrido por zonas          | Probar ambos modos sin reescribir misiones |
 | 2026-07-21 | Vista definitiva = **cenital** (opción B) | Mejor encaje con las mecánicas pensadas    |
+| 2026-07-21 | Visión: Toa Mangai / Lhikan + prólogo Northern Continent; Main única + eventos de mapa; Kanohi, elemental, búsqueda | Constancia de intenciones (`DESIGN_INTENT.md`) |
 
 
 ---
@@ -375,7 +379,7 @@ Anota aquí lo que surja, sin obligarte:
 ## Próximo paso concreto
 
 1. ~~Escribir la decisión de vista en Fase 1~~ *(hecho: cenital)*.
-2. Completar la **checklist de prueba** de Fase 2 (opcional, para entender el loop).
-3. **Diseño de contenido** (antes de Fase 3 en código): mapas, personajes e historia.
-4. Fase 3 en código solo cuando tú lo indiques (empezaría por transición a un segundo mapa).
+2. ~~Dejar constancia de intenciones de historia/mecánicas~~ *(hecho: `DESIGN_INTENT.md`)*.
+3. **Diseño del prólogo** (autor): Northern Continent — mapa, misión Main, eventos de mapa.
+4. Fase 3 en código solo cuando tú lo indiques (núcleo técnico; p. ej. mapas, inventario Kanohi, búsqueda).
 

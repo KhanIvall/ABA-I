@@ -1,0 +1,10 @@
+---
+description: Prefer work and pushes on branch dev, not main/master
+alwaysApply: true
+---
+
+# Git — rama de trabajo
+
+- El trabajo diario y los push van a la rama **`dev`**, no a `main` / `master`.
+- Solo fusionar o pushear a `main`/`master` si el usuario lo pide **explícitamente**.
+- Sigue vigente: ningún commit/push sin petición explícita (ver `git-commit-push.mdc`).

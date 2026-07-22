@@ -11,7 +11,7 @@ Adaptación (no reproducción literal) del arco de los **Toa Mangai**, centrada 
 
 **Arco largo previsto:** desde el reclutamiento (vinculado a **Vahki**) para proteger **Metru Nui**, hasta neutralizar y encerrar al **Kanohi Dragon**.
 
-**Primera instancia a desarrollar:** un **capítulo inicial previo al reclutamiento** — una misión en la isla conocida como **Northern Continent** (detalle de la misión y del mapa: *a definir por el autor*).
+**Primera instancia a desarrollar:** un **capítulo inicial previo al reclutamiento** — una misión en la isla conocida como **Northern Continent** (detalle de la misión y del mapa: *a definir por el autor*; silueta y nodos en [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md)).
 
 ```mermaid
 flowchart LR
@@ -24,15 +24,23 @@ flowchart LR
 
 ---
 
+## Enfoque respecto al lore oficial
+
+- **Prioridad:** adaptar la obra original **lo más fiel posible**.
+- **Licencias creativas:** donde el canon tenga **huecos**, ambigüedades o **inconsistencias**, el autor puede rellenar y hacer cambios **mínimos** para que el juego y la narración cierren.
+- Eso no es un “reboot libre”: el default es canon; la inventiva entra solo donde hace falta.
+
+---
+
 ## Quién diseña qué
 
 | Área | Quién decide |
 |------|----------------|
 | Historia, beats, diálogos, nombres propios de misiones | **Autor** |
-| Locaciones, NPCs, coleccionables concretos | **Autor** |
+| Locaciones (Wahi, Koro, POI), NPCs, coleccionables | **Autor** |
 | Qué Kanohi existen en cada acto y cómo se obtienen | **Autor** |
-| Sistemas técnicos (inventario, flags, grafo Main, búsqueda como mecánica) | Código / hobbie técnico, **alimentado por datos del autor** |
-| Lore Bionicle de fondo (Toa, Matoran, Kanohi, etc.) | Se asume conocido; no hace falta reexplicarlo salvo fanon o cambios al canon |
+| Sistemas técnicos (inventario, flags, grafo Main, mapas, búsqueda) | Código / hobbie técnico, **alimentado por datos del autor** |
+| Lore Bionicle de fondo (Toa, Matoran, Kanohi, etc.) | Se asume conocido; no hace falta reexplicarlo salvo fanon o desviaciones al canon |
 
 **Regla para agentes/IA:** no inventar misiones, ítems, personajes ni locaciones “para rellenar”. Proponer solo cuando se pida, y siempre como borrador sujeto a aprobación del autor.
 
@@ -65,13 +73,32 @@ flowchart LR
 ### 4. Vista
 - Vista de juego: **cenital** (decisión de Fase 1).
 
+### 5. Mapas Global y Local
+
+- **Mapa Global (fast travel):** muestra el continente/isla actual (en el prólogo: **Northern Continent**). El jugador se desplaza **solo** eligiendo nodos visitables en este mapa.
+- **Mapa Local:** orientación dentro del escenario actual (aldea, ciudad, POI, wahi jugable, etc.).
+- **Sin conexiones a pie entre locales:** cada Mapa Local es una escena **separada**; no se camina de un nodo a otro sin pasar por el Global.
+- **Desbloqueo gradual:** no todos los puntos del Global están visibles ni accesibles al inicio; se revelan / abren con progreso (flags, Main, etc.).
+- Detalle de nodos del prólogo (Wahi / Koro): el autor los lista en [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md).
+
+```mermaid
+flowchart TB
+  globalMap[MapaGlobal_FastTravel]
+  localA[MapaLocal_A]
+  localB[MapaLocal_B]
+  localC[MapaLocal_C]
+  globalMap -->|"nodo desbloqueado"| localA
+  globalMap -->|"nodo desbloqueado"| localB
+  globalMap -->|"nodo desbloqueado"| localC
+```
+
 ---
 
 ## Capítulos (borrador de alcance, sin beats inventados)
 
 | ID | Capítulo | Estado |
 |----|----------|--------|
-| `ch0_prologue` | Northern Continent — pre-reclutamiento | **Primero a diseñar** (a definir) |
+| `ch0_prologue` | Northern Continent — pre-reclutamiento | **Primero a diseñar** (mapa: silueta lista; nodos Wahi/Koro pendientes del autor) |
 | `ch1_recruit` | Reclutamiento / llegada al rol en Metru Nui | Pendiente |
 | `ch2_mangai` | Arco Toa Mangai en Metru Nui | Pendiente |
 | `ch3_dragon` | Confrontación / encierro del Kanohi Dragon | Pendiente |
@@ -91,3 +118,4 @@ Proyecto personal de hobbie. Bionicle / LEGO son marcas de terceros; esta es una
 | Fecha | Cambio |
 |-------|--------|
 | 2026-07-21 | Primera constancia: Mangai / Lhikan, prólogo Northern Continent, Kanohi + elemental + búsqueda, Main única + eventos de mapa |
+| 2026-07-22 | Lore: fidelidad al canon + licencias mínimas en huecos; Mapa Global/Local, viaje solo por nodos, desbloqueo gradual; plantilla Wahi/Koro |

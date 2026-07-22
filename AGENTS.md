@@ -7,12 +7,16 @@
 - Pedidos válidos: "haz commit", "commit y push", "sube esto a GitHub".
 - No válidos como autorización: terminar una feature, "perfecto, funciona", arreglar un bug, actualizar el plan.
 
-La misma regla vive en [`.cursor/rules/git-commit-push.mdc`](.cursor/rules/git-commit-push.mdc) para Cursor.
+**Rama de trabajo:** usar **`dev`**. No pushear directo a `main`/`master` salvo petición explícita.
+
+Reglas Cursor: [`.cursor/rules/git-commit-push.mdc`](.cursor/rules/git-commit-push.mdc), [`.cursor/rules/git-branch-dev.mdc`](.cursor/rules/git-branch-dev.mdc).
 
 ## Diseño e historia
 
 El dueño del proyecto **diseña** misiones, ítems, personajes y locaciones. Ver [`DESIGN_INTENT.md`](DESIGN_INTENT.md).
 
+- Adaptación **fiel al canon**; licencias creativas solo en huecos/inconsistencias (mínimas).
 - No inventar contenido Bionicle / misiones “de relleno”.
 - Placeholders técnicos genéricos sí; lore y beats narrativos solo con petición o texto del autor.
+- Mapa Global (fast travel) + Mapa Local; viaje entre áreas **solo** por nodos del Global. Nodos del prólogo: [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md).
 - Regla Cursor: [`.cursor/rules/design-authorship.mdc`](.cursor/rules/design-authorship.mdc).

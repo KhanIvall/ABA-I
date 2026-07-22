@@ -34,8 +34,9 @@ Este documento sirve para planificar el trabajo del hobbie por fases.
 
 
 **Ya cubierto en el repo:** Fase 0 (base), Fase 1 (prototipos; **vista = cenital**), Fase 2 (slice).  
+**Rama de trabajo:** `dev` (no pushear directo a `main`/`master`).  
 **Visión de contenido:** [`DESIGN_INTENT.md`](DESIGN_INTENT.md) — prólogo Northern Continent → Mangai / Lhikan → Kanohi Dragon.  
-**Siguiente foco (diseño, no código aún):** definir el capítulo prólogo (mapa, misión Main, eventos). Fase 3 en código cuando lo indiques.
+**Siguiente foco (diseño):** listar Wahi/Koro del prólogo en [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md). Fase 3 en código cuando lo indiques.
 
 ```mermaid
 flowchart LR
@@ -372,6 +373,7 @@ Anota aquí lo que surja, sin obligarte:
 | 2026-07-15 | Vertical slice híbrido por zonas          | Probar ambos modos sin reescribir misiones |
 | 2026-07-21 | Vista definitiva = **cenital** (opción B) | Mejor encaje con las mecánicas pensadas    |
 | 2026-07-21 | Visión: Toa Mangai / Lhikan + prólogo Northern Continent; Main única + eventos de mapa; Kanohi, elemental, búsqueda | Constancia de intenciones (`DESIGN_INTENT.md`) |
+| 2026-07-22 | Rama de trabajo `dev`; Mapa Global/Local + nodos; fidelidad canon + licencias mínimas | Flujo git + diseño de viaje del prólogo |
 
 
 ---
@@ -380,6 +382,7 @@ Anota aquí lo que surja, sin obligarte:
 
 1. ~~Escribir la decisión de vista en Fase 1~~ *(hecho: cenital)*.
 2. ~~Dejar constancia de intenciones de historia/mecánicas~~ *(hecho: `DESIGN_INTENT.md`)*.
-3. **Diseño del prólogo** (autor): Northern Continent — mapa, misión Main, eventos de mapa.
-4. Fase 3 en código solo cuando tú lo indiques (núcleo técnico; p. ej. mapas, inventario Kanohi, búsqueda).
+3. **Rellenar nodos Wahi/Koro** del Northern Continent en [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md).
+4. Esbozar Main + eventos del prólogo (autor).
+5. Fase 3 en código solo cuando tú lo indiques (núcleo técnico; p. ej. Mapa Global, inventario Kanohi, búsqueda).
 

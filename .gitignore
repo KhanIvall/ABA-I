@@ -37,5 +37,6 @@ dist/
 tools/*
 !tools/LocalGodotGenerators/
 !tools/LocalGodotGenerators/**
+!tools/build_continent_maps.py
 tools/LocalGodotGenerators/bin/
 tools/LocalGodotGenerators/obj/

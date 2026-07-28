@@ -79,7 +79,7 @@ flowchart LR
 - **Mapa Local:** orientación dentro del escenario actual (aldea, ciudad, POI, wahi jugable, etc.).
 - **Sin conexiones a pie entre locales:** cada Mapa Local es una escena **separada**; no se camina de un nodo a otro sin pasar por el Global.
 - **Desbloqueo gradual:** no todos los puntos del Global están visibles ni accesibles al inicio; se revelan / abren con progreso (flags, Main, etc.).
-- Detalle de nodos del prólogo (Wahi / Koro): el autor los lista en [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md).
+- Detalle del prólogo: **zonas** (lore geográfico) y **nodos locales** (destinos / Mapas Locales) en [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md).
 
 ```mermaid
 flowchart TB

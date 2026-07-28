@@ -10,75 +10,87 @@
 | [`northern_continent_poi_matanui.png`](northern_continent_poi_matanui.png) | Misma geografía + marcadores Koro + leyenda en franja inferior |
 
 **Reglas de viaje (fijas):**
-- El **Mapa Global** es la **única** forma de ir entre áreas.
-- Cada **Mapa Local** es una escena separada (no hay caminar de un Koro a otro sin fast travel).
-- Nodos del global: no todos visibles ni accesibles al inicio; se desbloquean con la historia / flags.
+- El continente **no** es un sandbox ni una escena gigante continua: no se camina de un local a otro por el mapa.
+- El **Mapa Global** es la **única** forma de ir entre Mapas Locales (fast travel por nodos).
+- Cada **Mapa Local** es una escena separada (Koro, suva, guarida, POI, etc.).
+- Las **zonas** son registro de lore geográfico (regiones del continente); **no** son destinos de viaje ni hubs.
+- Nodos del Global: no todos visibles ni accesibles al inicio; se desbloquean con la historia / flags.
 
 ---
 
 ## Cómo rellenar esto (para el autor)
 
-Copia una fila por cada punto visitable. Lo mínimo útil es: `id`, `nombre`, `tipo`, `dónde en el mapa`, `inicio`.
+Hay **dos listas**:
 
-**Tipos sugeridos:** `koro` (asentamiento) · `wahi` (wilderness / zona abierta) · `poi` (punto de interés puntual)
+1. **Zonas** — regiones del continente (Ta-Wahi, Aldari Coast, etc.). Lore / organización. No abren escena.
+2. **Nodos locales** — destinos visitables en el Global (Koro, suva, guaridas, POIs…). Cada uno tiene (o tendrá) un Mapa Local.
 
-**Posición en el outline:** describe en lenguaje natural o usa un esquema 3×3 / porcentajes (ej. “sureste, sobre la península”, o `~75% X, ~70% Y` desde arriba-izquierda). La mancha blanca del arte de referencia está aprox. en el **cuadrante sureste** del cuerpo principal (antes de la península).
+Cada nodo local apunta a una zona con `id_zona`.
 
-### Plantilla (rellena tú)
+**Tipos de nodo sugeridos:** `koro` · `suva` · `guarida` · `poi`
 
-| id | nombre | tipo | región en el outline | visible_inicio | accesible_inicio | notas |
-|----|--------|------|----------------------|----------------|------------------|-------|
-| `nc_...` | | koro/wahi/poi | | sí/no | sí/no | |
+**Posición en el outline:** lenguaje natural o porcentajes (ej. “sureste, sobre la península”, o `~75% X, ~70% Y` desde arriba-izquierda).
 
-### Ejemplo de formato (ficticio — borrar o sustituir)
+### Plantilla — zona
 
-| id | nombre | tipo | región en el outline | visible_inicio | accesible_inicio | notas |
-|----|--------|------|----------------------|----------------|------------------|-------|
-| `nc_ejemplo_koro` | (tu nombre) | koro | sureste del cuerpo principal | sí | sí | punto de partida del prólogo |
-| `nc_ejemplo_wahi` | (tu nombre) | wahi | centro-norte | no | no | se revela tras flag X |
+| id | nombre | también llamado | región en el outline | notas |
+|----|--------|-----------------|----------------------|-------|
+| `nc_...` | | | | |
 
-También puedes pegar la lista en el chat así:
+### Plantilla — nodo local
 
-```text
-id: nc_foo
-nombre: ...
-tipo: koro
-posición: costa oeste, a mitad de altura
-visible_inicio: sí
-accesible_inicio: sí
-desbloquea_con: (vacío / flag / misión)
-notas: ...
-```
+| id | nombre | tipo | id_zona | visible_inicio | accesible_inicio | notas |
+|----|--------|------|---------|----------------|------------------|-------|
+| `nc_...` | | koro/suva/guarida/poi | `nc_...` | sí/no | sí/no | |
 
 ---
 
-## Lista oficial del prólogo (autor)
+## Zonas (lore geográfico)
 
-| id | nombre | tipo | región en el outline | visible_inicio | accesible_inicio | notas |
-|----|--------|------|----------------------|----------------|------------------|-------|
-| nc_ta_wahi | Ta-Wahi | wahi | centro-este del cuerpo principal | no | no | No es un Mapa Local, es una zona. Tambien llamado Illidora Plains, unas extensas planicies |
-| nc_ta_koro | Ta-Koro | koro | centro-este del cuerpo principal | sí | sí | Ubicado en medio de las planicies  |
-| nc_ga_wahi | Ga-Wahi | wahi | centro-sur del cuerpo principal | no | no | No es un Mapa Local, es una zona. Tambien llamado Aldari Coast, una costa altamente comercial |
-| nc_ga_koro | Ga-Koro | koro | centro-sur del cuerpo principal | sí | sí | Ubicado en la costa, es un gran asentamiento portuario |
-| nc_le_wahi | Le-Wahi | wahi | sudoeste del cuerpo central | no | no | No es un Mapa Local, es una zona. Tambien llamado Aviro Glades, un claro floreado en medio de un bosque |
-| nc_le_koro | Le-Koro | koro | sudoeste del cuerpo central | sí | sí | Ubicado a las afueras del bosque que rodea Aviro Glades |
-| nc_po_wahi | Po-Wahi | wahi | centro-norte del cuerpo central | no | no | No es un Mapa Local, es una zona. Tambien llamado Northern Barrens, son tierras baldías y áridas |
-| nc_po_koro | Po-Koro | koro | centro-norte del cuerpo central | no | no | Ubicado en un cañon en las Barrens, con casas talladas en los muros de la quebrada |
-| nc_ko_wahi | Ko-Wahi | wahi | centro, ligeramente al oeste | no | no | No es un Mapa Local, es una zona. Tambien llamado Mount Rapovi, una alta montaña nevada |
-| nc_ko_koro | Ko-Koro | koro | centro, ligeramente al oeste | no | no | Ubicado en lo alto del monte, en igloo-like huts |
-| nc_onu_wahi | Onu-Wahi | wahi | centro, ligeramente al este | no | no | No es un Mapa Local, es una zona. Tambien llamado The Mines |
-| nc_onu_koro | Onu-Koro | koro | centro, ligeramente al este | no | no | Un asentamiento minero ubicado en la entrada de The Mines, a los pies del monte Rapovi |
-| nc_tr_kr_pen | Tren Krom Peninsula | wahi | sudeste del continente | no | no | No es un Mapa Local, es una zona. Una zona accidentada, con muchos acantilados y peligros por todas partes |
-| nc_tiru_lake | Tiru Lake | wahi | sudeste del continente, norte de la Peninsula | no | no | No es un Mapa Local, es una zona. Un imponente lago que separa el continente de la peninsula. de él desprende un río que desemboca en el mar hacia el este |
-| nc_de_wahi | De-Wahi | wahi | extremo sur de la Peninsula | no | no | No es un Mapa Local, es una zona. Una zona baldía con muy poca vida silvestre y por lo tanto muy solenciosa |
-| nc_de_koro | De-Koro | koro | extremo sur de la Peninsula | no | no | Ubicada en un silencioso y rocoso acantilado |
+Registro de las regiones que componen el continente. Los Mapas Locales viven *dentro* de estas zonas; la zona en sí no es un pin de viaje.
+
+| id | nombre | también llamado | región en el outline | notas |
+|----|--------|-----------------|----------------------|-------|
+| nc_ta_wahi | Ta-Wahi | Illidora Plains | centro-este del cuerpo principal | Extensas planicies |
+| nc_ga_wahi | Ga-Wahi | Aldari Coast | centro-sur del cuerpo principal | Costa altamente comercial |
+| nc_le_wahi | Le-Wahi | Aviro Glades | sudoeste del cuerpo central | Claro floreado en medio de un bosque |
+| nc_po_wahi | Po-Wahi | Northern Barrens | centro-norte del cuerpo central | Tierras baldías y áridas |
+| nc_ko_wahi | Ko-Wahi | Mount Rapovi | centro, ligeramente al oeste | Alta montaña nevada |
+| nc_onu_wahi | Onu-Wahi | The Mines | centro, ligeramente al este | Zona minera |
+| nc_tr_kr_pen | Tren Krom Peninsula | | sudeste del continente | Zona accidentada: acantilados y peligros |
+| nc_tiru_lake | Tiru Lake | | sudeste del continente, norte de la Peninsula | Lago que separa el continente de la península; de él sale un río al mar hacia el este |
+| nc_de_wahi | De-Wahi | | extremo sur de la Peninsula | Zona baldía, poca vida silvestre, muy silenciosa |
 
 ---
 
-## Mapas Locales ligados a cada nodo
+## Nodos locales (destinos del Global)
 
-Cuando un nodo exista, anota qué escena local usará (aunque aún no exista el archivo):
+Cada fila es un pin del Mapa Global y corresponde a un Mapa Local (escena). Más adelante se añaden suva, guaridas, etc. en la misma tabla.
 
-| id_nodo_global | id_escena_local (previsto) | qué es en una frase |
-|----------------|----------------------------|---------------------|
-| | | |
+| id | nombre | tipo | id_zona | visible_inicio | accesible_inicio | notas |
+|----|--------|------|---------|----------------|------------------|-------|
+| nc_ta_koro | Ta-Koro | koro | nc_ta_wahi | sí | sí | En medio de las planicies |
+| nc_ga_koro | Ga-Koro | koro | nc_ga_wahi | sí | sí | Gran asentamiento portuario en la costa |
+| nc_le_koro | Le-Koro | koro | nc_le_wahi | sí | sí | A las afueras del bosque que rodea Aviro Glades |
+| nc_po_koro | Po-Koro | koro | nc_po_wahi | no | no | Cañón en las Barrens; casas talladas en los muros |
+| nc_ko_koro | Ko-Koro | koro | nc_ko_wahi | no | no | En lo alto del monte; igloo-like huts |
+| nc_onu_koro | Onu-Koro | koro | nc_onu_wahi | no | no | Asentamiento minero a la entrada de The Mines, a los pies de Mount Rapovi |
+| nc_de_koro | De-Koro | koro | nc_de_wahi | no | no | En un silencioso y rocoso acantilado |
+| nc_ta_suva | Ta-Suva | suva | nc_ta_wahi | no | no | Shrine en Illidora Plains |
+
+---
+
+## Escenas locales previstas
+
+Una fila por cada **nodo local** (no por zona). Anota la escena aunque el `.tscn` aún no exista.
+
+| id_nodo | id_escena_local (previsto) | qué es en una frase |
+|---------|----------------------------|---------------------|
+| nc_ta_koro | local_ta_koro | Aldea de fuego en Ta-Wahi |
+| nc_ga_koro | local_ga_koro | Aldea de agua en Ga-Wahi |
+| nc_le_koro | local_le_koro | Aldea de aire en Le-Wahi |
+| nc_po_koro | local_po_koro | Aldea de piedra en Po-Wahi |
+| nc_ko_koro | local_ko_koro | Aldea de hielo en Ko-Wahi |
+| nc_onu_koro | local_onu_koro | Aldea de tierra en Onu-Wahi |
+| nc_de_koro | local_de_koro | Aldea de sonido en De-Wahi |
+| nc_ta_suva | local_ta_suva | Suva de fuego en Ta-Wahi |

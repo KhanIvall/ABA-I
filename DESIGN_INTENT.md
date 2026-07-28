@@ -11,7 +11,7 @@ Adaptación (no reproducción literal) del arco de los **Toa Mangai**, centrada 
 
 **Arco largo previsto:** desde el reclutamiento (vinculado a **Vahki**) para proteger **Metru Nui**, hasta neutralizar y encerrar al **Kanohi Dragon**.
 
-**Primera instancia a desarrollar:** un **capítulo inicial previo al reclutamiento** — una misión en la isla conocida como **Northern Continent** (detalle de la misión y del mapa: *a definir por el autor*; silueta y nodos en [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md)).
+**Primera instancia a desarrollar:** un **capítulo inicial previo al reclutamiento** — una misión en la isla conocida como **Northern Continent** (mapa: [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md); misiones: [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md); personajes: [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md)).
 
 ```mermaid
 flowchart LR
@@ -98,7 +98,7 @@ flowchart TB
 
 | ID | Capítulo | Estado |
 |----|----------|--------|
-| `ch0_prologue` | Northern Continent — pre-reclutamiento | **Primero a diseñar** (mapa: silueta lista; nodos Wahi/Koro pendientes del autor) |
+| `ch0_prologue` | Northern Continent — pre-reclutamiento | **Primero a diseñar** (mapa listo; misiones/personajes en docs de diseño) |
 | `ch1_recruit` | Reclutamiento / llegada al rol en Metru Nui | Pendiente |
 | `ch2_mangai` | Arco Toa Mangai en Metru Nui | Pendiente |
 | `ch3_dragon` | Confrontación / encierro del Kanohi Dragon | Pendiente |

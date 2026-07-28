@@ -9,6 +9,10 @@
 | [`northern_continent_geo_matanui.png`](northern_continent_geo_matanui.png) | Mapa **solo geografía** (biomas procedurales limpios; sin textos) |
 | [`northern_continent_poi_matanui.png`](northern_continent_poi_matanui.png) | Misma geografía + marcadores Koro + leyenda en franja inferior |
 
+**Diseño relacionado:**
+- Misiones: [`PROLOGUE_QUESTS.md`](PROLOGUE_QUESTS.md)
+- Personajes: [`PROLOGUE_CHARS.md`](PROLOGUE_CHARS.md)
+
 **Reglas de viaje (fijas):**
 - El continente **no** es un sandbox ni una escena gigante continua: no se camina de un local a otro por el mapa.
 - El **Mapa Global** es la **única** forma de ir entre Mapas Locales (fast travel por nodos).
@@ -70,7 +74,7 @@ Cada fila es un pin del Mapa Global y corresponde a un Mapa Local (escena). Más
 | id | nombre | tipo | id_zona | visible_inicio | accesible_inicio | notas |
 |----|--------|------|---------|----------------|------------------|-------|
 | nc_ta_koro | Ta-Koro | koro | nc_ta_wahi | sí | sí | En medio de las planicies |
-| nc_ga_koro | Ga-Koro | koro | nc_ga_wahi | sí | sí | Gran asentamiento portuario en la costa |
+| nc_ga_koro | Ga-Koro | koro | nc_ga_wahi | sí | sí | Gran asentamiento portuario en la costa. Escena inicial, Lhikan llega al puerto tras un viaje. |
 | nc_le_koro | Le-Koro | koro | nc_le_wahi | sí | sí | A las afueras del bosque que rodea Aviro Glades |
 | nc_po_koro | Po-Koro | koro | nc_po_wahi | no | no | Cañón en las Barrens; casas talladas en los muros |
 | nc_ko_koro | Ko-Koro | koro | nc_ko_wahi | no | no | En lo alto del monte; igloo-like huts |

@@ -36,7 +36,7 @@ Este documento sirve para planificar el trabajo del hobbie por fases.
 **Ya cubierto en el repo:** Fase 0 (base), Fase 1 (prototipos; **vista = cenital**), Fase 2 (slice).  
 **Rama de trabajo:** `dev` (no pushear directo a `main`/`master`).  
 **Visión de contenido:** [`DESIGN_INTENT.md`](DESIGN_INTENT.md) — prólogo Northern Continent → Mangai / Lhikan → Kanohi Dragon.  
-**Siguiente foco (diseño):** zonas + nodos locales del prólogo en [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md). Fase 3 en código cuando lo indiques.
+**Siguiente foco (diseño):** esbozar Main + personajes del prólogo en [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md) / [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md). Fase 3 en código cuando lo indiques.
 
 ```mermaid
 flowchart LR
@@ -382,7 +382,7 @@ Anota aquí lo que surja, sin obligarte:
 
 1. ~~Escribir la decisión de vista en Fase 1~~ *(hecho: cenital)*.
 2. ~~Dejar constancia de intenciones de historia/mecánicas~~ *(hecho: `DESIGN_INTENT.md`)*.
-3. **Rellenar zonas y nodos locales** del Northern Continent en [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md).
-4. Esbozar Main + eventos del prólogo (autor).
+3. ~~Rellenar zonas y nodos locales~~ del Northern Continent *(hecho en `PROLOGUE_MAP.md`)*.
+4. Esbozar Main + eventos + personajes del prólogo (autor) en [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md) / [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md).
 5. Fase 3 en código solo cuando tú lo indiques (núcleo técnico; p. ej. Mapa Global, inventario Kanohi, búsqueda).
 

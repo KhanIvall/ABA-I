@@ -18,5 +18,6 @@ El dueño del proyecto **diseña** misiones, ítems, personajes y locaciones. Ve
 - Adaptación **fiel al canon**; licencias creativas solo en huecos/inconsistencias (mínimas).
 - No inventar contenido Bionicle / misiones “de relleno”.
 - Placeholders técnicos genéricos sí; lore y beats narrativos solo con petición o texto del autor.
-- Mapa Global (fast travel) + Mapa Local; viaje entre áreas **solo** por nodos del Global. Nodos del prólogo: [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md).
+- Mapa Global (fast travel) + Mapa Local; viaje entre áreas **solo** por nodos del Global.
+- Nodos del prólogo: [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md); misiones/personajes: [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md), [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md).
 - Regla Cursor: [`.cursor/rules/design-authorship.mdc`](.cursor/rules/design-authorship.mdc).

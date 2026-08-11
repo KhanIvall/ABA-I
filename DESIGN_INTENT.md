@@ -73,7 +73,32 @@ flowchart LR
 ### 4. Vista
 - Vista de juego: **cenital** (decisión de Fase 1).
 
-### 5. Mapas Global y Local
+### 5. Salud — tres estados (sin barra de vida)
+
+No hay medidor de HP numérico. Todo personaje (Toa, Matoran, Turaga, Rahi, etc.) usa los mismos **tres estados**:
+
+| Estado | Cómo se llega | Duración | Presentación | Penalización |
+|--------|---------------|----------|--------------|--------------|
+| **Healthy** | Estado normal / recuperación desde Wounded | — | Pose normal | Ninguna |
+| **Wounded** | Recibir **1 golpe** estando Healthy | **5 s** (medidor de tiempo); luego vuelve a Healthy | Encorvado, alerta | **Movimiento a mitad de velocidad** |
+| **Fallen** | Recibir **1 golpe** estando Wounded | **5 s** (medidor de tiempo); luego vuelve a Wounded | Tirado en el suelo; peligro de muerte | **Movimiento nulo** |
+| **Dead** | Recibir **1 golpe** estando Fallen | — | Muerte | Fuera de combate |
+
+```mermaid
+stateDiagram-v2
+  [*] --> Healthy
+  Healthy --> Wounded: 1 golpe
+  Wounded --> Healthy: timeout 5s
+  Wounded --> Fallen: 1 golpe
+  Fallen --> Wounded: timeout 5s
+  Fallen --> Dead: 1 golpe
+```
+
+- Un golpe **cualquiera** (sin importar “daño” variable) basta para el cambio de estado o la muerte.
+- Aplica a **todos** los personajes del juego, no solo al jugador.
+- En **Fallen**, sobrevivir los 5 s sin recibir otro golpe permite volver a **Wounded**.
+
+### 6. Mapas Global y Local
 
 - **Mapa Global (overworld):** muestra el continente/isla actual (en el prólogo: **Northern Continent**). Se recorre por **áreas**; el movimiento es libre **dentro** de un área.
 - **Nexos (`pass`):** para pasar de un área a otra hay que usar un nodo nexo accesible (no hay cruce libre entre secciones).
@@ -122,3 +147,4 @@ Proyecto personal de hobbie. Bionicle / LEGO son marcas de terceros; esta es una
 | 2026-07-21 | Primera constancia: Mangai / Lhikan, prólogo Northern Continent, Kanohi + elemental + búsqueda, Main única + eventos de mapa |
 | 2026-07-22 | Lore: fidelidad al canon + licencias mínimas en huecos; Mapa Global/Local, viaje solo por nodos, desbloqueo gradual; plantilla Wahi/Koro |
 | 2026-08-11 | Mapa Global = overworld por áreas + nexos `pass` (ya no fast travel puro pin→teleporte) |
+| 2026-08-11 | Salud: estados Healthy / Wounded / Fallen (5 s); golpe en Fallen = muerte; sin barra de HP; aplica a todo personaje |

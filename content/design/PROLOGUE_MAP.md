@@ -89,6 +89,8 @@ Secciones de overworld: movimiento libre **dentro** de cada área; cruce a otra 
 | area_ga_01 | Cercanías de Ga-Koro | nc_ga_wahi | Overworld alrededor del puerto y costa Aldari | nc_ga_le_korin, nc_collapse | Conectada con `area_le_01` por el río Korin |
 | area_le_01 | Cercanías de Le-Koro | nc_le_wahi | Overworld alrededor de Le-Koro y Aviro Glades | nc_ga_le_korin | Conectada con `area_ga_01` por el río Korin |
 | area_road_01 | Gran Camino | nc_ga_wahi, nc_onu_wahi, nc_ta_wahi | Camino que conecta Ga-Wahi, Onu-Wahi y Ta-Wahi | nc_collapse | Acceso ligado a `pq_003` / `f_vis_road` (ajustar cuando definas el resto) |
+| area_aviro | Bosque Aviro | nc_le_wahi | Overworld del bosque de Aviro Glades | nc_le_koro | Conectada con `area_le_01` por Aviro Gates en Le-Koro |
+
 
 ---
 
@@ -100,7 +102,7 @@ Cada fila es un punto del Mapa Global: **destino** (Mapa Local) o **nexo** (`pas
 |----|--------|------|---------|---------|----------------|------------------|--------------------|-------|
 | nc_ta_koro | Ta-Koro | koro | nc_ta_wahi | | sí | sí | - | En medio de las planicies |
 | nc_ga_koro | Ga-Koro | koro | nc_ga_wahi | area_ga_01 | sí | sí | - | Gran asentamiento portuario en la costa. Escena inicial, Lhikan llega al puerto tras un viaje. |
-| nc_le_koro | Le-Koro | koro | nc_le_wahi | area_le_01 | sí | sí | - | A las afueras del bosque que rodea Aviro Glades |
+| nc_le_koro | Le-Koro | koro / pass | nc_le_wahi | area_le_01 | sí | sí | - | A las afueras del bosque que rodea Aviro Glades. Nexo `area_le_01` ↔ `area_aviro`; a través de Aviro Gates |
 | nc_po_koro | Po-Koro | koro | nc_po_wahi | | no | no | 100 | Cañón en las Barrens; casas talladas en los muros |
 | nc_ko_koro | Ko-Koro | koro | nc_ko_wahi | | no | no | 100 | En lo alto del monte; igloo-like huts |
 | nc_onu_koro | Onu-Koro | koro | nc_onu_wahi | | no | no | 100 | Asentamiento minero a la entrada de The Mines, a los pies de Mount Rapovi |

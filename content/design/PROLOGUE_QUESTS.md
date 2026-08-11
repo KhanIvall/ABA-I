@@ -20,7 +20,7 @@
 
 ### Main (obligatorio antes de implementar el prólogo)
 
-La Kanohi del Toa de Hielo Atuka se ha perdido. Ahora él yace en elcentro de Aviro Glades, sobreviviendo a duras penas con una Kanohi noble que simplemente le da el sustento necesario para seguir vivo.
+La Kanohi Calix del Toa de Hielo Atuka se ha perdido. Ahora él yace en elcentro de Aviro Glades, sobreviviendo a duras penas con una Kanohi noble que simplemente le da el sustento necesario para seguir vivo.
 
 Una fila por beat / misión del hilo principal. Orden = secuencia aproximada.
 
@@ -28,9 +28,9 @@ Una fila por beat / misión del hilo principal. Orden = secuencia aproximada.
 
 | orden | id | título (trabajo) | objetivo en una frase | id_nodo / escena | desbloquea (nodo/flag/misión) | entrega_items | notas |
 |------:|----|------------------|-----------------------|------------------|-------------------------------|---------------|-------|
-| 1 | `pq_001` | Busca a Taruhi | dirigirse hacia donde está Taruhi | `nc_ga_koro` / `local_ga_koro` | `pq_002` | | llegada al puerto |
-| 2 | `pq_002` | Habla con Volog | viajar a Le-Koro para hablar con Volog | `nc_le_koro` / `local_le_koro` | `pq_003` | | |
-| 3 | `pq_003` | Ayuda al Toa Caido | encuentra y asiste al Toa caido | `nc_glade` / `local_glade` | `pq_004`, `f_acc_road` | Kanohi Matatu | al llegar debe defender al Toa de unos Rahi |
+| 1 | `pq_001` | Busca a Taruhi | dirigirse hacia donde está Taruhi | `nc_ga_koro` / `local_ga_koro` | `pq_002` | | llegada al puerto. Matoran de confianza, Taruhi. Después de la bienvenida la matoran pide que asista a Turaga Volog con un problema reciente |
+| 2 | `pq_002` | Habla con Volog | viajar a Le-Koro para hablar con Volog | `nc_le_koro` / `local_le_koro` | `pq_003` | | Volog le cuenta a Lhikan que Matoran reportaron una batalla en los Claros y recientemente unas figuras saltaron el muro que rodea el bosque |
+| 3 | `pq_003` | Ayuda al Toa Caido | encuentra y asiste al Toa caido | `nc_glade` / `local_glade` | `pq_004`, `f_acc_road` | Noble Kanohi Matatu | al llegar debe defender al Toa de unos Rahi. Atuka se puso una Noble Kanohi Huna que llevaba para recuperar energías. Solicita ayuda para recuperar su Kanohi robada, y regala una Noble Kanohi Matatu para ayudar con la mision |
 | 4 | `pq_004` | | | `nc_` / `local_` | | | |
 
 ### Eventos de mapa (opcionales / mundo vivo)
@@ -47,7 +47,9 @@ Lista corta de flags que la Main / eventos / nodos van a necesitar. Evita invent
 
 | flag | qué significa | lo pone | lo usa |
 |------|---------------|---------|--------|
-| `f_acc_road` | el acceso a Gran Camino se vuelve accesible | | |
+| `f_unlock_le_01` | se desbloquea `area_le_01` | nodo `nc_ga_le_korin` completado | `area_le_01` |
+| `f_acc_road` | el acceso a Gran Camino se vuelve accesible | `pq_003` | `nc_collapse` |
+| `f_unlock_road_01` | se desbloquea `area_road_01` | nodo `nc_collapse` completado | `area_road_01` |
 
 ---
 

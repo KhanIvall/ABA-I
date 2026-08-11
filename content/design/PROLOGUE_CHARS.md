@@ -21,9 +21,9 @@ Una fila por personaje con diálogo o función en el prólogo. `id_nodo` = dónd
 
 | id | nombre | tipo | id_nodo (base) | rol en una frase | aparece_inicio | notas |
 |----|--------|------|----------------|------------------|----------------|-------|
-| `npc_001` | Taruhi | `matoran` | `nc_ga_koro` | orienta a Lhikan tras llegar. Forma parte de Main quest | sí | |
-| `npc_002` | Volog | `turaga` | `nc_le_koro` | informa del altercado en el Claro. Forma parte de Main quest | sí | |
-| `npc_003` | Atuka | `toa` | `nc_glade` | pide ayuda para recuperar su Kanohi. Forma parte de Main quest | sí | Perdió su Kanohi en una batalla con unos criminales (Un Steltian y dos Skakdi) |
+| `npc_001` | Taruhi | `matoran` | `nc_ga_koro` | orienta a Lhikan tras llegar. Forma parte de Main quest | sí | Porta una Noble Kanohi Huna |
+| `npc_002` | Volog | `turaga` | `nc_le_koro` | informa del altercado en el Claro. Forma parte de Main quest | sí | Porta una Noble Kanohi Kakama |
+| `npc_003` | Atuka | `toa` | `nc_glade` | pide ayuda para recuperar su Kanohi. Forma parte de Main quest | sí | Perdió su Kanohi Calix en una batalla con unos criminales (Un Steltian y dos Skakdi) |
 
 **Tipos sugeridos:** `matoran` · `toa` · `turaga` · `rahkshi` · `otro`
 

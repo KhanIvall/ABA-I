@@ -14,26 +14,33 @@
 - Personajes: [`PROLOGUE_CHARS.md`](PROLOGUE_CHARS.md)
 
 **Reglas de viaje (fijas):**
-- El continente **no** es un sandbox ni una escena gigante continua: no se camina de un local a otro por el mapa.
-- El **Mapa Global** es la **única** forma de ir entre Mapas Locales (fast travel por nodos).
-- Cada **Mapa Local** es una escena separada (Koro, suva, guarida, POI, etc.).
-- Las **zonas** son registro de lore geográfico (regiones del continente); **no** son destinos de viaje ni hubs.
-- Nodos del Global: no todos visibles ni accesibles al inicio; se desbloquean con la historia / flags.
+- El **Mapa Global** es un overworld por **áreas/secciones**: dentro de un área el jugador se mueve con libertad.
+- Las áreas se **conectan solo por nodos nexo** (tipo `pass`). Sin pasar por un nexo accesible no se cruza de un área a otra.
+- Entrar a un **Mapa Local** (Koro, suva, glade, etc.) es salir del overworld a una **escena separada**; no hay un único sandbox continuo continente↔interiores.
+- Las **zonas** (Ta-Wahi, etc.) son lore geográfico; **no** son el grafo de movilidad (ese son áreas + nodos).
+- Nodos: no todos visibles/accesibles al inicio. Se abren por historia/flags y/o por **descubrimiento al acercarse** (`descubrimiento_pct`).
+- Detalle de movilidad: sección [Movilidad en el Mapa Global](#movilidad-en-el-mapa-global).
 
 ---
 
 ## Cómo rellenar esto (para el autor)
 
-Hay **dos listas**:
+Hay **tres listas**:
 
-1. **Zonas** — regiones del continente (Ta-Wahi, Aldari Coast, etc.). Lore / organización. No abren escena.
-2. **Nodos locales** — destinos visitables en el Global (Koro, suva, guaridas, POIs…). Cada uno tiene (o tendrá) un Mapa Local.
+1. **Zonas** — lore geográfico (Ta-Wahi, Aldari Coast…). No definen movilidad.
+2. **Áreas** — secciones del **Mapa Global** donde el jugador se mueve libremente. Se cruzan solo por nodos `pass`.
+3. **Nodos** — destinos (Mapa Local) o nexos (`pass`) dentro / entre áreas.
 
-Cada nodo local apunta a una zona con `id_zona`.
+Cada nodo apunta a una **zona** (`id_zona`, lore) y a un **área** (`id_area`, movilidad). Un `pass` en el borde puede listarse en el área “de salida” habitual; las conexiones entre áreas se anotan en la tabla de áreas.
 
-**Tipos de nodo sugeridos:** `koro` · `suva` · `guarida` · `poi`
+**Tipos de nodo sugeridos:** `koro` · `suva` · `guarida` · `poi` · `pass` · `glade`
+
+- `pass` = nexo entre áreas del Global.
+- El resto suelen abrir un **Mapa Local** al interactuar / entrar.
 
 **Posición en el outline:** lenguaje natural o porcentajes (ej. “sureste, sobre la península”, o `~75% X, ~70% Y` desde arriba-izquierda).
+
+**`descubrimiento_pct`:** para nodos **ocultos** (`visible_inicio`/`accesible_inicio` = no) que pueden revelarse al **acercarse** el jugador en el Global. Valor `0`–`100` = % de probabilidad de pasar a visible+accesible en ese acercamiento. Vacío o `-` = no usa descubrimiento por proximidad (solo misión/flag, o ya visible al inicio).
 
 ### Plantilla — zona
 
@@ -41,11 +48,17 @@ Cada nodo local apunta a una zona con `id_zona`.
 |----|--------|-----------------|----------------------|-------|
 | `nc_...` | | | | |
 
-### Plantilla — nodo local
+### Plantilla — área (Mapa Global)
 
-| id | nombre | tipo | id_zona | visible_inicio | accesible_inicio | notas |
-|----|--------|------|---------|----------------|------------------|-------|
-| `nc_...` | | koro/suva/guarida/poi | `nc_...` | sí/no | sí/no | |
+| id | nombre | zonas_asociadas | descripción | nexos (`pass`) | notas |
+|----|--------|-----------------|-------------|----------------|-------|
+| `area_...` | | `nc_...` | | `nc_...` | |
+
+### Plantilla — nodo
+
+| id | nombre | tipo | id_zona | id_area | visible_inicio | accesible_inicio | descubrimiento_pct | notas |
+|----|--------|------|---------|---------|----------------|------------------|--------------------|-------|
+| `nc_...` | | koro/suva/pass/… | `nc_...` | `area_...` | sí/no | sí/no | `-` o 0–100 | |
 
 ---
 
@@ -67,26 +80,42 @@ Registro de las regiones que componen el continente. Los Mapas Locales viven *de
 
 ---
 
-## Nodos locales (destinos del Global)
+## Áreas del Mapa Global
 
-Cada fila es un pin del Mapa Global y corresponde a un Mapa Local (escena). Más adelante se añaden suva, guaridas, etc. en la misma tabla.
+Secciones de overworld: movimiento libre **dentro** de cada área; cruce a otra área solo por un `pass` accesible. No confundir con **zonas** (lore).
 
-| id | nombre | tipo | id_zona | visible_inicio | accesible_inicio | notas |
-|----|--------|------|---------|----------------|------------------|-------|
-| nc_ta_koro | Ta-Koro | koro | nc_ta_wahi | sí | sí | En medio de las planicies |
-| nc_ga_koro | Ga-Koro | koro | nc_ga_wahi | sí | sí | Gran asentamiento portuario en la costa. Escena inicial, Lhikan llega al puerto tras un viaje. |
-| nc_le_koro | Le-Koro | koro | nc_le_wahi | sí | sí | A las afueras del bosque que rodea Aviro Glades |
-| nc_po_koro | Po-Koro | koro | nc_po_wahi | no | no | Cañón en las Barrens; casas talladas en los muros |
-| nc_ko_koro | Ko-Koro | koro | nc_ko_wahi | no | no | En lo alto del monte; igloo-like huts |
-| nc_onu_koro | Onu-Koro | koro | nc_onu_wahi | no | no | Asentamiento minero a la entrada de The Mines, a los pies de Mount Rapovi |
-| nc_de_koro | De-Koro | koro | nc_de_wahi | no | no | En un silencioso y rocoso acantilado |
-| nc_ta_suva | Ta-Suva | suva | nc_ta_wahi | no | no | Shrine en Illidora Plains |
+| id | nombre | zonas_asociadas | descripción | nexos (`pass`) | notas |
+|----|--------|-----------------|-------------|----------------|-------|
+| area_ga_01 | Cercanías de Ga-Koro | nc_ga_wahi | Overworld alrededor del puerto y costa Aldari | nc_ga_le_korin, nc_collapse | Conectada con `area_le_01` por el río Korin |
+| area_le_01 | Cercanías de Le-Koro | nc_le_wahi | Overworld alrededor de Le-Koro y Aviro Glades | nc_ga_le_korin | Conectada con `area_ga_01` por el río Korin |
+| area_road_01 | Gran Camino | nc_ga_wahi, nc_onu_wahi, nc_ta_wahi | Camino que conecta Ga-Wahi, Onu-Wahi y Ta-Wahi | nc_collapse | Acceso ligado a `pq_003` / `f_vis_road` (ajustar cuando definas el resto) |
+
+---
+
+## Nodos (destinos y nexos del Global)
+
+Cada fila es un punto del Mapa Global: **destino** (Mapa Local) o **nexo** (`pass` entre áreas).
+
+| id | nombre | tipo | id_zona | id_area | visible_inicio | accesible_inicio | descubrimiento_pct | notas |
+|----|--------|------|---------|---------|----------------|------------------|--------------------|-------|
+| nc_ta_koro | Ta-Koro | koro | nc_ta_wahi | | sí | sí | - | En medio de las planicies |
+| nc_ga_koro | Ga-Koro | koro | nc_ga_wahi | area_ga_01 | sí | sí | - | Gran asentamiento portuario en la costa. Escena inicial, Lhikan llega al puerto tras un viaje. |
+| nc_le_koro | Le-Koro | koro | nc_le_wahi | area_le_01 | sí | sí | - | A las afueras del bosque que rodea Aviro Glades |
+| nc_po_koro | Po-Koro | koro | nc_po_wahi | | no | no | 100 | Cañón en las Barrens; casas talladas en los muros |
+| nc_ko_koro | Ko-Koro | koro | nc_ko_wahi | | no | no | 100 | En lo alto del monte; igloo-like huts |
+| nc_onu_koro | Onu-Koro | koro | nc_onu_wahi | | no | no | 100 | Asentamiento minero a la entrada de The Mines, a los pies de Mount Rapovi |
+| nc_de_koro | De-Koro | koro | nc_de_wahi | | no | no | 100 | En un silencioso y rocoso acantilado |
+| nc_ta_suva | Ta-Suva | suva | nc_ta_wahi | | no | no | 100 | Shrine en Illidora Plains |
+| nc_ga_suva | Ga-Suva | suva | nc_ga_wahi | area_ga_01 | no | no | 100 | Shrine en Aldari Coast |
+| nc_ga_le_korin | Korin River Pass | pass | nc_ga_wahi | area_ga_01 | sí | sí | - | Nexo `area_ga_01` ↔ `area_le_01`; puente roto |
+| nc_collapse | Collapsed Pass | pass | nc_ga_wahi | area_ga_01 | sí | no | - | Nexo `area_ga_01` ↔ `area_road_01`; derrumbe. Accesible tras `pq_003` |
+| nc_glade | The Glade | glade | nc_le_wahi | area_le_01 | sí | sí | - | Claro rodeado de arboles y cubierto de flores de diversos colores |
 
 ---
 
 ## Escenas locales previstas
 
-Una fila por cada **nodo local** (no por zona). Anota la escena aunque el `.tscn` aún no exista.
+Una fila por cada **nodo** (no por zona). Anota la escena aunque el `.tscn` aún no exista. Los `pass` pueden tener escena propia (cruce del río, etc.) o resolverse solo en el Global; anótalo en la frase.
 
 | id_nodo | id_escena_local (previsto) | qué es en una frase |
 |---------|----------------------------|---------------------|
@@ -98,3 +127,19 @@ Una fila por cada **nodo local** (no por zona). Anota la escena aunque el `.tscn
 | nc_onu_koro | local_onu_koro | Aldea de tierra en Onu-Wahi |
 | nc_de_koro | local_de_koro | Aldea de sonido en De-Wahi |
 | nc_ta_suva | local_ta_suva | Suva de fuego en Ta-Wahi |
+| nc_ga_suva | local_ga_suva | Suva de agua en Ga-Wahi |
+| nc_ga_le_korin | local_ga_le_korin | Paso del Río Korin (nexo Ga↔Le) |
+| nc_collapse | local_collapse | Paso colapsado (nexo Ga↔Camino) |
+| nc_glade | local_glade | Claro de Le-Wahi |
+
+---
+
+## Movilidad en el Mapa Global
+
+El Mapa Global funciona por **áreas** (tabla [Áreas del Mapa Global](#áreas-del-mapa-global)) interconectadas por nodos nexo.
+
+- **Dentro de un área:** movimiento libre; acercarse a nodos de esa sección (descubrimiento, entrar a destinos, etc.).
+- **Entre áreas:** solo por un nodo tipo **`pass`** accesible (ej. `nc_ga_le_korin`: `area_ga_01` ↔ `area_le_01`).
+- Un `pass` puede estar visible pero **no accesible** hasta una misión/flag (ej. `nc_collapse` tras `pq_003`: `area_ga_01` ↔ `area_road_01`).
+- Esto **no** es fast travel de “elegir cualquier pin y teletransportarse”: overworld + gates entre secciones.
+- Los **Mapas Locales** son escenas aparte al entrar a un destino (aldea, suva, claro…).

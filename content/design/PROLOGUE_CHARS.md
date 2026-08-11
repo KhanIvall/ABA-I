@@ -21,8 +21,9 @@ Una fila por personaje con diálogo o función en el prólogo. `id_nodo` = dónd
 
 | id | nombre | tipo | id_nodo (base) | rol en una frase | aparece_inicio | notas |
 |----|--------|------|----------------|------------------|----------------|-------|
-| `npc_001` | Taruhi | `matoran` | `nc_ga_koro` |  | sí | |
-| `npc_002` | Volog | `turaga` | `nc_le_koro` |  | no | |
+| `npc_001` | Taruhi | `matoran` | `nc_ga_koro` | orienta a Lhikan tras llegar. Forma parte de Main quest | sí | |
+| `npc_002` | Volog | `turaga` | `nc_le_koro` | informa del altercado en el Claro. Forma parte de Main quest | sí | |
+| `npc_003` | Atuka | `toa` | `nc_glade` | pide ayuda para recuperar su Kanohi. Forma parte de Main quest | sí | Perdió su Kanohi en una batalla con unos criminales (Un Steltian y dos Skakdi) |
 
 **Tipos sugeridos:** `matoran` · `toa` · `turaga` · `rahkshi` · `otro`
 
@@ -34,7 +35,11 @@ Quién importa en qué beat de la Main (ids de `PROLOGUE_QUESTS.md`).
 
 | id_misión (`pq_...`) | personajes implicados (`id`) | nota |
 |----------------------|------------------------------|------|
-| | | |
+| `pq_001` | `npc_001` | termina la quest |
+| `pq_002` | `npc_001` | da la quest |
+| `pq_002` | `npc_002` | termina la quest |
+| `pq_003` | `npc_002` | da la quest |
+| `pq_003` | `npc_003` | termina la quest |
 
 ---
 

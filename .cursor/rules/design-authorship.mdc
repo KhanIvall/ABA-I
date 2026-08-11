@@ -10,5 +10,5 @@ ABA-I es una adaptación fan del arco **Toa Mangai** (marco en `DESIGN_INTENT.md
 - Priorizar **fidelidad al canon**; relleno creativo solo donde el autor indique huecos o inconsistencias.
 - **No inventes** misiones, ítems, personajes, locaciones, diálogos ni beats “para avanzar el juego” sin que el usuario lo pida.
 - Si hace falta contenido de prueba técnico, usa **placeholders** genéricos (como el slice actual), no lore Bionicle inventado.
-- Mecánicas previstas a soportar en código (cuando se indiquen): **Kanohi** como ítems con poderes, **poderes elementales**, **búsqueda**, línea **Main** única + **eventos de mapa**, **Mapa Global** (fast travel / nodos) + **Mapa Local** (orientación; escenas separadas).
+- Mecánicas previstas a soportar en código (cuando se indiquen): **Kanohi** como ítems con poderes, **poderes elementales**, **búsqueda**, línea **Main** única + **eventos de mapa**, **Mapa Global** (overworld por áreas + nexos `pass`) + **Mapa Local** (escenas al entrar en destinos).
 - Pregunta o deja TODOs cuando falte una decisión del autor.

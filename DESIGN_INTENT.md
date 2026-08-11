@@ -75,21 +75,23 @@ flowchart LR
 
 ### 5. Mapas Global y Local
 
-- **Mapa Global (fast travel):** muestra el continente/isla actual (en el prólogo: **Northern Continent**). El jugador se desplaza **solo** eligiendo nodos visitables en este mapa.
-- **Mapa Local:** orientación dentro del escenario actual (aldea, ciudad, POI, wahi jugable, etc.).
-- **Sin conexiones a pie entre locales:** cada Mapa Local es una escena **separada**; no se camina de un nodo a otro sin pasar por el Global.
-- **Desbloqueo gradual:** no todos los puntos del Global están visibles ni accesibles al inicio; se revelan / abren con progreso (flags, Main, etc.).
-- Detalle del prólogo: **zonas** (lore geográfico) y **nodos locales** (destinos / Mapas Locales) en [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md).
+- **Mapa Global (overworld):** muestra el continente/isla actual (en el prólogo: **Northern Continent**). Se recorre por **áreas**; el movimiento es libre **dentro** de un área.
+- **Nexos (`pass`):** para pasar de un área a otra hay que usar un nodo nexo accesible (no hay cruce libre entre secciones).
+- **Mapa Local:** escena **separada** al entrar a un destino (aldea, suva, POI, etc.); orientación dentro de ese escenario.
+- **No es un único sandbox continuo** de todo el continente mezclado con interiores: Global = overworld por áreas; Local = escenas al entrar en nodos destino.
+- **Desbloqueo gradual:** nodos no siempre visibles/accesibles al inicio; se revelan / abren con progreso (flags, Main) y/o descubrimiento al acercarse.
+- Detalle del prólogo (zonas, **áreas** del Global, nodos, movilidad): [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md).
 
 ```mermaid
 flowchart TB
-  globalMap[MapaGlobal_FastTravel]
-  localA[MapaLocal_A]
-  localB[MapaLocal_B]
-  localC[MapaLocal_C]
-  globalMap -->|"nodo desbloqueado"| localA
-  globalMap -->|"nodo desbloqueado"| localB
-  globalMap -->|"nodo desbloqueado"| localC
+  areaA[Area_Ga]
+  areaB[Area_Le]
+  passN[Nodo_pass]
+  localKoro[MapaLocal_Koro]
+  areaA -->|"libre dentro del area"| areaA
+  areaA --> passN
+  passN --> areaB
+  areaA -->|"entrar destino"| localKoro
 ```
 
 ---
@@ -119,3 +121,4 @@ Proyecto personal de hobbie. Bionicle / LEGO son marcas de terceros; esta es una
 |-------|--------|
 | 2026-07-21 | Primera constancia: Mangai / Lhikan, prólogo Northern Continent, Kanohi + elemental + búsqueda, Main única + eventos de mapa |
 | 2026-07-22 | Lore: fidelidad al canon + licencias mínimas en huecos; Mapa Global/Local, viaje solo por nodos, desbloqueo gradual; plantilla Wahi/Koro |
+| 2026-08-11 | Mapa Global = overworld por áreas + nexos `pass` (ya no fast travel puro pin→teleporte) |

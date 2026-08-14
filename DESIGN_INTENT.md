@@ -11,7 +11,7 @@ Adaptación (no reproducción literal) del arco de los **Toa Mangai**, centrada 
 
 **Arco largo previsto:** desde el reclutamiento (vinculado a **Vahki**) para proteger **Metru Nui**, hasta neutralizar y encerrar al **Kanohi Dragon**.
 
-**Primera instancia a desarrollar:** un **capítulo inicial previo al reclutamiento** — una misión en la isla conocida como **Northern Continent** (mapa: [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md); misiones: [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md); personajes: [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md)).
+**Primera instancia a desarrollar:** capítulo **`ch0_prologue` — Search for Power** (Northern Continent, pre-reclutamiento). Mapa: [`PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md); misiones: [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md); personajes: [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md); ítems: [`PROLOGUE_ITEMS.md`](content/design/PROLOGUE_ITEMS.md).
 
 ```mermaid
 flowchart LR
@@ -66,9 +66,15 @@ flowchart LR
 - Los personajes jugables (Lhikan y, más adelante, otros Toa) tienen **poderes elementales** propios, distintos del sistema Kanohi.
 
 ### 3. Mecánica de búsqueda
-- Habrá un sistema de **búsqueda** (inspección / rastreo / exploración dirigida).
-- Será **crucial** en ciertas misiones Main, en eventos de mapa y en coleccionables.
-- El alcance exacto (controles, UI, pistas) se define cuando se implemente; aquí solo queda el requisito.
+
+Acción del jugador para **revelar entidades ocultas** en un **radio** alrededor del personaje.
+
+- **Uso:** misiones Main (ej. seguir huellas en `pq_004`), eventos de mapa, coleccionables.
+- **Por investigación:** cada intento (o cada entidad en el radio) tiene un **% de probabilidad de revelación**; no todo lo oculto aparece seguro al primer uso.
+- **Radio:** alcance limitado (valor exacto / si escala con Kanohi u otros bonuses — a definir al implementar).
+- **UI / controles:** a definir en implementación (input, feedback visual del radio, medidor si aplica).
+
+Pendiente de autor al detallar: cooldown entre búsquedas, si el % es por entidad o por zona, y si fallar deja alguna pista.
 
 ### 4. Vista
 - Vista de juego: **cenital** (decisión de Fase 1).
@@ -125,7 +131,7 @@ flowchart TB
 
 | ID | Capítulo | Estado |
 |----|----------|--------|
-| `ch0_prologue` | Northern Continent — pre-reclutamiento | **Primero a diseñar** (mapa listo; misiones/personajes en docs de diseño) |
+| `ch0_prologue` | **Search for Power** — Northern Continent, pre-reclutamiento | En diseño (mapa + Main esbozada; ítems/búsqueda en docs) |
 | `ch1_recruit` | Reclutamiento / llegada al rol en Metru Nui | Pendiente |
 | `ch2_mangai` | Arco Toa Mangai en Metru Nui | Pendiente |
 | `ch3_dragon` | Confrontación / encierro del Kanohi Dragon | Pendiente |
@@ -147,4 +153,4 @@ Proyecto personal de hobbie. Bionicle / LEGO son marcas de terceros; esta es una
 | 2026-07-21 | Primera constancia: Mangai / Lhikan, prólogo Northern Continent, Kanohi + elemental + búsqueda, Main única + eventos de mapa |
 | 2026-07-22 | Lore: fidelidad al canon + licencias mínimas en huecos; Mapa Global/Local, viaje solo por nodos, desbloqueo gradual; plantilla Wahi/Koro |
 | 2026-08-11 | Mapa Global = overworld por áreas + nexos `pass` (ya no fast travel puro pin→teleporte) |
-| 2026-08-11 | Salud: estados Healthy / Wounded / Fallen (5 s); golpe en Fallen = muerte; sin barra de HP; aplica a todo personaje |
+| 2026-08-12 | Cap. 0 titulado **Search for Power**; búsqueda = revelar ocultos en radio con %; catálogo ítems de diseño |

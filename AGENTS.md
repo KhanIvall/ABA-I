@@ -19,5 +19,5 @@ El dueño del proyecto **diseña** misiones, ítems, personajes y locaciones. Ve
 - No inventar contenido Bionicle / misiones “de relleno”.
 - Placeholders técnicos genéricos sí; lore y beats narrativos solo con petición o texto del autor.
 - Mapa Global (overworld por áreas + nexos `pass`) + Mapa Local (escena al entrar en un destino). Detalle: [`PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md).
-- Nodos del prólogo: [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md); misiones/personajes: [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md), [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md).
+- Nodos del prólogo: [`content/design/PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md); misiones/personajes/ítems: [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md), [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md), [`PROLOGUE_ITEMS.md`](content/design/PROLOGUE_ITEMS.md).
 - Regla Cursor: [`.cursor/rules/design-authorship.mdc`](.cursor/rules/design-authorship.mdc).

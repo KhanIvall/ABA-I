@@ -3,7 +3,8 @@
 **Autoría:** rellena tú. No hace falta ficha completa de todos; prioriza quienes aparecen en la Main y en `local_ga_koro` al inicio.
 
 **Mapa / nodos:** [`PROLOGUE_MAP.md`](PROLOGUE_MAP.md)  
-**Misiones:** [`PROLOGUE_QUESTS.md`](PROLOGUE_QUESTS.md)
+**Misiones:** [`PROLOGUE_QUESTS.md`](PROLOGUE_QUESTS.md)  
+**Ítems:** [`PROLOGUE_ITEMS.md`](PROLOGUE_ITEMS.md)
 
 ---
 
@@ -12,6 +13,8 @@
 | id | nombre | rol | notas |
 |----|--------|-----|-------|
 | `pc_lhikan` | Toa Lhikan | jugador | Llega a Ga-Koro por puerto al inicio del prólogo |
+| `pc_naho` | Toa Naho | jugador | *(por definir)* |
+| `pc_nidhiki` | Toa Nidhiki | jugador | *(por definir)* |
 
 ---
 

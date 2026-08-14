@@ -12,6 +12,7 @@
 **Diseño relacionado:**
 - Misiones: [`PROLOGUE_QUESTS.md`](PROLOGUE_QUESTS.md)
 - Personajes: [`PROLOGUE_CHARS.md`](PROLOGUE_CHARS.md)
+- Ítems: [`PROLOGUE_ITEMS.md`](PROLOGUE_ITEMS.md)
 
 **Reglas de viaje (fijas):**
 - El **Mapa Global** es un overworld por **áreas/secciones**: dentro de un área el jugador se mueve con libertad.
@@ -86,10 +87,12 @@ Secciones de overworld: movimiento libre **dentro** de cada área; cruce a otra 
 
 | id | nombre | zonas_asociadas | descripción | nexos (`pass`) | notas |
 |----|--------|-----------------|-------------|----------------|-------|
-| area_ga_01 | Cercanías de Ga-Koro | nc_ga_wahi | Overworld alrededor del puerto y costa Aldari | nc_ga_le_korin, nc_collapse | Conectada con `area_le_01` por el río Korin |
+| area_ga_01 | Cercanías de Ga-Koro | nc_ga_wahi | Overworld alrededor del puerto y costa Aldari | nc_ga_le_korin, nc_collapse | Conectada con `area_le_01` por el río Korin y `area_road_01` por el paso colapsado |
 | area_le_01 | Cercanías de Le-Koro | nc_le_wahi | Overworld alrededor de Le-Koro y Aviro Glades | nc_ga_le_korin | Conectada con `area_ga_01` por el río Korin |
 | area_road_01 | Gran Camino | nc_ga_wahi, nc_onu_wahi, nc_ta_wahi | Camino que conecta Ga-Wahi, Onu-Wahi y Ta-Wahi | nc_collapse | Acceso ligado a `pq_003` / `f_vis_road` (ajustar cuando definas el resto) |
 | area_aviro | Bosque Aviro | nc_le_wahi | Overworld del bosque de Aviro Glades | nc_le_koro | Conectada con `area_le_01` por Aviro Gates en Le-Koro |
+| area_ta_01 | Cercanías de Ta-Koro | nc_ta_wahi | Overworld de Illidora Plains | nc_mountain_tunnel | Conectada con `area_road_01` por el tunel en la montaña |
+
 
 
 ---
@@ -100,7 +103,7 @@ Cada fila es un punto del Mapa Global: **destino** (Mapa Local) o **nexo** (`pas
 
 | id | nombre | tipo | id_zona | id_area | visible_inicio | accesible_inicio | descubrimiento_pct | notas |
 |----|--------|------|---------|---------|----------------|------------------|--------------------|-------|
-| nc_ta_koro | Ta-Koro | koro | nc_ta_wahi | | sí | sí | - | En medio de las planicies |
+| nc_ta_koro | Ta-Koro | koro | nc_ta_wahi | area_ta_01 | sí | sí | - | En medio de las planicies |
 | nc_ga_koro | Ga-Koro | koro | nc_ga_wahi | area_ga_01 | sí | sí | - | Gran asentamiento portuario en la costa. Escena inicial, Lhikan llega al puerto tras un viaje. |
 | nc_le_koro | Le-Koro | koro / pass | nc_le_wahi | area_le_01 | sí | sí | - | A las afueras del bosque que rodea Aviro Glades. Nexo `area_le_01` ↔ `area_aviro`; a través de Aviro Gates |
 | nc_po_koro | Po-Koro | koro | nc_po_wahi | | no | no | 100 | Cañón en las Barrens; casas talladas en los muros |
@@ -111,7 +114,9 @@ Cada fila es un punto del Mapa Global: **destino** (Mapa Local) o **nexo** (`pas
 | nc_ga_suva | Ga-Suva | suva | nc_ga_wahi | area_ga_01 | no | no | 100 | Shrine en Aldari Coast |
 | nc_ga_le_korin | Korin River Pass | pass | nc_ga_wahi | area_ga_01 | sí | sí | - | Nexo `area_ga_01` ↔ `area_le_01`; puente roto |
 | nc_collapse | Collapsed Pass | pass | nc_ga_wahi | area_ga_01 | sí | no | - | Nexo `area_ga_01` ↔ `area_road_01`; derrumbe. Accesible tras `pq_003` |
-| nc_glade | The Glade | glade | nc_le_wahi | area_le_01 | sí | sí | - | Claro rodeado de arboles y cubierto de flores de diversos colores |
+| nc_glade | The Glade | glade | nc_le_wahi | area_aviro | sí | sí | - | Claro rodeado de arboles y cubierto de flores de diversos colores |
+| nc_mountain_tunnel | The Mountain Tunnel | pass | nc_onu_wahi | area_road_01 | sí | sí | - | Nexo `area_road_01` ↔ `area_ta_01`; tunel |
+| nc_rock_wall | Rock Wall | poi | nc_onu_wahi | area_road_01 | no | no | 100 | Espacio rocoso al rededor de una muralla rocosa, que es el pie de una montaña. Ahí se encuentra el cadaver de un guardia Ta-Matoran |
 
 ---
 
@@ -133,6 +138,7 @@ Una fila por cada **nodo** (no por zona). Anota la escena aunque el `.tscn` aún
 | nc_ga_le_korin | local_ga_le_korin | Paso del Río Korin (nexo Ga↔Le) |
 | nc_collapse | local_collapse | Paso colapsado (nexo Ga↔Camino) |
 | nc_glade | local_glade | Claro de Le-Wahi |
+| nc_mountain_tunnel | local_mountain_tunnel | Tunel que atravieza la montaña |
 
 ---
 

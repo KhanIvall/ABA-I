@@ -9,10 +9,12 @@
 
 ## Premisa (conocida)
 
-- Capítulo: `ch0_prologue` — Northern Continent, pre-reclutamiento.
+- Capítulo: `ch0_prologue` — **Search for Power**
 - Jugable: **Toa Lhikan**.
 - **Escena inicial:** `local_ga_koro` (`nc_ga_koro`) — Lhikan llega al puerto tras un viaje.
 - Estructura: **una Main** + **eventos de mapa** (no side-quests lineales en paralelo).
+
+**Diseño relacionado:** [`PROLOGUE_ITEMS.md`](PROLOGUE_ITEMS.md) (ítems / Kanohi del prólogo)
 
 ---
 
@@ -24,14 +26,16 @@ La Kanohi Calix del Toa de Hielo Atuka se ha perdido. Ahora él yace en elcentro
 
 Una fila por beat / misión del hilo principal. Orden = secuencia aproximada.
 
-`entrega_items`: ids de ítems que el jugador **recibe al completar** la misión (separados por coma). Vacío si no hay. Los ids de ítem se definirán en datos (`content/items/…`) cuando existan.
+`entrega_items`: ids de ítems que el jugador **recibe al completar** la misión (separados por coma; usar ids de [`PROLOGUE_ITEMS.md`](PROLOGUE_ITEMS.md)). Vacío si no hay.
 
-| orden | id | título (trabajo) | objetivo en una frase | id_nodo / escena | desbloquea (nodo/flag/misión) | entrega_items | notas |
-|------:|----|------------------|-----------------------|------------------|-------------------------------|---------------|-------|
+| orden | id   | título (trabajo) | objetivo en una frase             | id_nodo / escena | desbloquea (nodo/flag/misión) | entrega_items | notas |
+|------:|------|------------------|-----------------------------------|------------------|-------------------------------|---------------|-------|
 | 1 | `pq_001` | Busca a Taruhi | dirigirse hacia donde está Taruhi | `nc_ga_koro` / `local_ga_koro` | `pq_002` | | llegada al puerto. Matoran de confianza, Taruhi. Después de la bienvenida la matoran pide que asista a Turaga Volog con un problema reciente |
 | 2 | `pq_002` | Habla con Volog | viajar a Le-Koro para hablar con Volog | `nc_le_koro` / `local_le_koro` | `pq_003` | | Volog le cuenta a Lhikan que Matoran reportaron una batalla en los Claros y recientemente unas figuras saltaron el muro que rodea el bosque |
-| 3 | `pq_003` | Ayuda al Toa Caido | encuentra y asiste al Toa caido | `nc_glade` / `local_glade` | `pq_004`, `f_acc_road` | Noble Kanohi Matatu | al llegar debe defender al Toa de unos Rahi. Atuka se puso una Noble Kanohi Huna que llevaba para recuperar energías. Solicita ayuda para recuperar su Kanohi robada, y regala una Noble Kanohi Matatu para ayudar con la mision |
-| 4 | `pq_004` | | | `nc_` / `local_` | | | |
+| 3 | `pq_003` | Ayuda al Toa Caido | encuentra y asiste al Toa caido | `nc_glade` / `local_glade` | `pq_004`, `f_acc_road` | `item_matatu_noble` | al llegar debe defender al Toa de unos Rahi. Atuka se puso una Noble Kanohi Huna (`item_huna_noble`) que llevaba para recuperar energías. Solicita ayuda para recuperar su Kanohi robada (`item_calix`), y regala una `item_matatu_noble` para ayudar con la mision |
+| 4 | `pq_004` | Sigue las huellas | Sigue el rastro de huellas hasta encontrar alguna pista | `nc_` / `local_` | `pq_005` | `item_fire_spear` | usar mecánica de busqueda para guiarse por las huellas que se vayan encontrando hasta llegar al objetivo |
+| 5 | `pq_005` | Investiga en Ta-Koro | Ve a Ta-Koro a investigar la muerte del Ta-Matoran | `nc_ta_koro` / `local_ta_koro` | `pq_006` | | al encontrar el cadaver de un guardia Ta-Matoran al final del rastro de huellas hay que investigar en Ta-Koro |
+| 6 | `pq_006` |  |  | `nc_` / `local_` | | | |
 
 ### Eventos de mapa (opcionales / mundo vivo)
 
@@ -45,8 +49,8 @@ Encuentros, hallazgos, suva, etc. No compiten con la Main.
 
 Lista corta de flags que la Main / eventos / nodos van a necesitar. Evita inventar docenas; solo los que ya sepas.
 
-| flag | qué significa | lo pone | lo usa |
-|------|---------------|---------|--------|
+| flag               | qué significa           | lo pone          | lo usa |
+|--------------------|-------------------------|------------------|--------|
 | `f_unlock_le_01` | se desbloquea `area_le_01` | nodo `nc_ga_le_korin` completado | `area_le_01` |
 | `f_acc_road` | el acceso a Gran Camino se vuelve accesible | `pq_003` | `nc_collapse` |
 | `f_unlock_road_01` | se desbloquea `area_road_01` | nodo `nc_collapse` completado | `area_road_01` |

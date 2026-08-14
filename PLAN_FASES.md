@@ -383,6 +383,7 @@ Anota aquí lo que surja, sin obligarte:
 1. ~~Escribir la decisión de vista en Fase 1~~ *(hecho: cenital)*.
 2. ~~Dejar constancia de intenciones de historia/mecánicas~~ *(hecho: `DESIGN_INTENT.md`)*.
 3. ~~Rellenar zonas y nodos locales~~ del Northern Continent *(hecho en `PROLOGUE_MAP.md`)*.
-4. Esbozar Main + eventos + personajes del prólogo (autor) en [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md) / [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md).
-5. Fase 3 en código solo cuando tú lo indiques (núcleo técnico; p. ej. Mapa Global, inventario Kanohi, búsqueda).
+4. Esbozar Main + eventos + personajes + ítems del prólogo (autor) en [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md) / [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md) / [`PROLOGUE_ITEMS.md`](content/design/PROLOGUE_ITEMS.md).
+5. Detallar %/radio de **búsqueda** cuando haga falta para `pq_004` (marco en `DESIGN_INTENT.md`).
+6. Fase 3 en código solo cuando tú lo indiques (núcleo técnico; p. ej. Mapa Global, inventario Kanohi, búsqueda).
 

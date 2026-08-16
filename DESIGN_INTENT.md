@@ -125,6 +125,10 @@ flowchart TB
   areaA -->|"entrar destino"| localKoro
 ```
 
+### Mecánicas pendiente:
+
+- Funcionalidad de los Suva (storage de kanohi y herramientas?)
+
 ---
 
 ## Capítulos (borrador de alcance, sin beats inventados)

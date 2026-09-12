@@ -49,6 +49,7 @@ Una fila por ítem. Prioriza lo que ya aparece en la Main (`entrega_items`, nota
 | `item_kakama_great` | Great Kanohi Kakama | Great Mask of Speed | kanohi_great | aumenta velocidad |  | Mascara de Toa Ruados `npc_ruados` |
 | `item_nuvi_great` | Great Kanohi Nuvi | Great Mask of Healing | kanohi_great | cura heridas de terceros |  | Mascara de Toa Taibo `npc_taibo` |
 | `item_kakama_noble` | Noble Kanohi Kakama | Noble Mask of Speed | kanohi_noble | aumenta velocidad por breve tiempo |  | Mascara de Turaga Volog `npc_002` |
+| `item_akaku_noble` | Noble Kanohi Akaku | Noble Mask of X Ray Vision | kanohi_noble | otorga visión de rayos x por breve tiempo |  | Mascara de Turaga Ferin `npc_003` |
 | `item_fire_spear` | Guard Firespear | Weapon of the Ta-Koro guards | object | - | cadaver de guardia matoran | Es la pista que se encuentra en el cadaver de un matoran en `nc_rock_wall` al terminar la misión `pq_004` |
 
 ---

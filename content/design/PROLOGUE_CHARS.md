@@ -12,9 +12,9 @@
 
 | id | nombre | rol | notas |
 |----|--------|-----|-------|
-| `pc_lhikan` | Toa Lhikan | jugador | Llega a Ga-Koro por puerto al inicio del prólogo. Porta una Great Kanohi Hau `item_hau_great` |
-| `pc_naho` | Toa Naho | jugador | Investiga el secuestro de Toas en Stelt. Porta una Great Kanohi Ruru `item_ruru_great` |
-| `pc_nidhiki` | Toa Nidhiki | jugador | Porta una Great Kanohi Volitak `item_volitak_great` |
+| `pc_lhikan` | Toa Lhikan | jugador | Llega a Ga-Koro por puerto al inicio del prólogo. Porta una Great Kanohi Hau `item_hau_great`. Recluta a Atuka, Motara y Andoremo |
+| `pc_naho` | Toa Naho | jugador | Investiga el secuestro de Toas en Stelt. Porta una Great Kanohi Ruru `item_ruru_great`. Recluta a Tuyet y Ziid |
+| `pc_nidhiki` | Toa Nidhiki | jugador | Porta una Great Kanohi Volitak `item_volitak_great`. Recluta a Froti, Ruados y Taibo |
 
 ---
 
@@ -26,7 +26,7 @@ Una fila por personaje con diálogo o función en el prólogo. `id_nodo` = dónd
 |----|--------|------|----------------|------------------|----------------|-------|
 | `npc_tuyet` | Tuyet | `toa` |  |  | no | Toa de Agua. Porta una Great Kanohi Undara `item_undara_great` |
 | `npc_atuka` | Atuka | `toa` | `nc_glade` | pide ayuda para recuperar su Kanohi. Forma parte de Main quest | no | Toa de Hielo. Perdió su Great Kanohi Calix `item_calix_great` en una batalla con unos criminales (Un Steltian y dos Skakdi). Usa una Noble Kanohi Huna `item_huna_noble` para conservar energías |
-| `npc_andoremo` | Andoremo | `toa` |  |  | no | Toa de Hielo. Porta una Great Kanohi Zaude `item_zaude_great` |
+| `npc_andoremo` | Andoremo | `toa` |  |  | no | Toa de Hielo. Porta una Great Kanohi Zaude `item_zaude_great`. Habita en el Monte Rapovi |
 | `npc_ziid` | Ziid | `toa` |  |  | no | Toa de Hielo. Porta una Great Kanohi Rode `item_rode_great` |
 | `npc_froti` | Froti | `toa` |  |  | no | Toa de Hielo. Porta una Great Kanohi Kaukau `item_kaukau_great` |
 | `npc_motara` | Motara | `toa` |  |  | no | Toa de Piedra. Porta una Great Kanohi Iridus `item_iridus_great` |
@@ -34,6 +34,7 @@ Una fila por personaje con diálogo o función en el prólogo. `id_nodo` = dónd
 | `npc_taibo` | Taibo | `toa` |  |  | no | Toa de lo Verde. Porta una Great Kanohi Nuvi `item_nuvi_great`. Viene del sur del Universo Matoran con su fiel amigo Ruados |
 | `npc_001` | Taruhi | `matoran` | `nc_ga_koro` | orienta a Lhikan tras llegar. Forma parte de Main quest | sí | Porta una Noble Kanohi Huna `item_huna_noble` |
 | `npc_002` | Volog | `turaga` | `nc_le_koro` | informa del altercado en el Claro. Forma parte de Main quest | sí | Porta una Noble Kanohi Kakama `item_kakama_noble` |
+| `npc_003` | Ferin | `turaga` | `nc_ta_koro` | Infotrma sobre el movimiento de los criminales hacia el norte | sí | Porta una Noble Kanohi Akaku `item_akaku_noble` |
 
 **Tipos sugeridos:** `matoran` · `toa` · `turaga` · `rahkshi` · `otro`
 

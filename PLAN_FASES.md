@@ -35,8 +35,8 @@ Este documento sirve para planificar el trabajo del hobbie por fases.
 
 **Ya cubierto en el repo:** Fase 0 (base), Fase 1 (prototipos; **vista = cenital**), Fase 2 (slice).  
 **Rama de trabajo:** `dev` (no pushear directo a `main`/`master`).  
-**Visión de contenido:** [`DESIGN_INTENT.md`](DESIGN_INTENT.md) — prólogo Northern Continent → Mangai / Lhikan → Kanohi Dragon.  
-**Siguiente foco (diseño):** esbozar Main + personajes del prólogo en [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md) / [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md). Fase 3 en código cuando lo indiques.
+**Visión de contenido:** [`DESIGN_INTENT.md`](DESIGN_INTENT.md) — **Search for Power** (Northern Continent + reclutamiento Mangai) → arco Mangai / Lhikan en Metru Nui → Kanohi Dragon.  
+**Siguiente foco (diseño):** cerrar Main del prólogo (incl. reclutamiento) + personajes/ítems en [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md) / [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md) / [`PROLOGUE_ITEMS.md`](content/design/PROLOGUE_ITEMS.md). Fase 3 en código cuando lo indiques.
 
 ```mermaid
 flowchart LR
@@ -359,7 +359,7 @@ Anota aquí lo que surja, sin obligarte:
 - Poderes elementales del Toa jugable
 - Mecánica de búsqueda (misiones / coleccionables / eventos)
 - Eventos de mapa en lugar de side quests lineales
-- Cap. prólogo: Northern Continent (a definir)
+- Cap. prólogo (`ch0_prologue` Search for Power): Northern Continent + reclutamiento Mangai
 - Más Toa jugables además de Lhikan (más adelante)
 
 ---
@@ -374,6 +374,7 @@ Anota aquí lo que surja, sin obligarte:
 | 2026-07-21 | Vista definitiva = **cenital** (opción B) | Mejor encaje con las mecánicas pensadas    |
 | 2026-07-21 | Visión: Toa Mangai / Lhikan + prólogo Northern Continent; Main única + eventos de mapa; Kanohi, elemental, búsqueda | Constancia de intenciones (`DESIGN_INTENT.md`) |
 | 2026-07-22 | Rama de trabajo `dev`; Mapa Global/Local + nodos; fidelidad canon + licencias mínimas | Flujo git + diseño de viaje del prólogo |
+| 2026-09-13 | Reclutamiento ∈ `ch0_prologue` (no capítulo aparte) | Alineado con tabla de capítulos en `DESIGN_INTENT.md` |
 
 
 ---
@@ -383,7 +384,7 @@ Anota aquí lo que surja, sin obligarte:
 1. ~~Escribir la decisión de vista en Fase 1~~ *(hecho: cenital)*.
 2. ~~Dejar constancia de intenciones de historia/mecánicas~~ *(hecho: `DESIGN_INTENT.md`)*.
 3. ~~Rellenar zonas y nodos locales~~ del Northern Continent *(hecho en `PROLOGUE_MAP.md`)*.
-4. Esbozar Main + eventos + personajes + ítems del prólogo (autor) en [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md) / [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md) / [`PROLOGUE_ITEMS.md`](content/design/PROLOGUE_ITEMS.md).
-5. Detallar %/radio de **búsqueda** cuando haga falta para `pq_004` (marco en `DESIGN_INTENT.md`).
+4. Esbozar Main + eventos + personajes + ítems del prólogo **incluyendo reclutamiento** (autor) en [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md) / [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md) / [`PROLOGUE_ITEMS.md`](content/design/PROLOGUE_ITEMS.md).
+5. Detallar %/radio de **búsqueda** cuando haga falta para `pq_lk_004` (marco en `DESIGN_INTENT.md`).
 6. Fase 3 en código solo cuando tú lo indiques (núcleo técnico; p. ej. Mapa Global, inventario Kanohi, búsqueda).
 

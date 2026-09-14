@@ -9,17 +9,16 @@
 
 Adaptación (no reproducción literal) del arco de los **Toa Mangai**, centrada en principio en **Toa Lhikan** (con la intención de poder jugar otros Toa más adelante).
 
-**Arco largo previsto:** desde el reclutamiento (vinculado a **Vahki**) para proteger **Metru Nui**, hasta neutralizar y encerrar al **Kanohi Dragon**.
+**Arco largo previsto:** desde **Search for Power** (Northern Continent + reclutamiento de los Mangai, vinculado a **Vahki** / **Metru Nui**) hasta neutralizar y encerrar al **Kanohi Dragon**.
 
-**Primera instancia a desarrollar:** capítulo **`ch0_prologue` — Search for Power** (Northern Continent, pre-reclutamiento). Mapa: [`PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md); misiones: [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md); personajes: [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md); ítems: [`PROLOGUE_ITEMS.md`](content/design/PROLOGUE_ITEMS.md).
+**Primera instancia a desarrollar:** capítulo **`ch0_prologue` — Search for Power** (Northern Continent, **incluye** el reclutamiento; cierra con los 11 Mangai). Mapa: [`PROLOGUE_MAP.md`](content/design/PROLOGUE_MAP.md); misiones: [`PROLOGUE_QUESTS.md`](content/design/PROLOGUE_QUESTS.md); personajes: [`PROLOGUE_CHARS.md`](content/design/PROLOGUE_CHARS.md); ítems: [`PROLOGUE_ITEMS.md`](content/design/PROLOGUE_ITEMS.md).
 
 ```mermaid
 flowchart LR
-  prologue[CapituloPrologo_NorthernContinent]
-  recruit[Reclutamiento_Vahki_MetruNui]
-  mangai[Arco_ToaMangai]
-  dragon[KanohiDragon_NeutralizarYEncerrar]
-  prologue --> recruit --> mangai --> dragon
+  prologue[ch0_SearchForPower_incl_Reclutamiento]
+  mangai[ch1_Arco_ToaMangai_MetruNui]
+  dragon[ch2_ch3_KanohiDragon]
+  prologue --> mangai --> dragon
 ```
 
 ---
@@ -48,8 +47,8 @@ flowchart LR
 
 ## Estructura narrativa de misiones
 
-- **Main:** una **única línea principal** de misiones que lleva el eje de la historia (Lhikan → Mangai → Kanohi Dragon, pasando por el prólogo).
-- **“Side missions”:** no como lista paralela clásica de encargos, sino como **eventos repartidos por el mapa** que den vida al mundo (encuentros, hallazgos, pequeñas escenas). Pueden dar recompensas o flags, pero **no deben competir** con la Main como segunda campaña lineal.
+- **Main:** **una línea principal por cada personaje jugable** (en el prólogo: `pq_lk_*` Lhikan, `pq_nk_*` Nidhiki, `pq_nh_*` Naho). Cada una lleva su propio eje; no hay una sola Main compartida entre PJs. El arco largo del juego sigue Lhikan → Mangai → Kanohi Dragon, pasando por el prólogo.
+- **“Side missions”:** no como lista paralela clásica de encargos, sino como **eventos repartidos por el mapa** que den vida al mundo (encuentros, hallazgos, pequeñas escenas). Pueden dar recompensas o flags, pero **no deben competir** con la Main del jugable activo como segunda campaña lineal.
 
 ---
 
@@ -69,7 +68,7 @@ flowchart LR
 
 Acción del jugador para **revelar entidades ocultas** en un **radio** alrededor del personaje.
 
-- **Uso:** misiones Main (ej. seguir huellas en `pq_004`), eventos de mapa, coleccionables.
+- **Uso:** misiones Main (ej. seguir huellas en `pq_lk_004`), eventos de mapa, coleccionables.
 - **Por investigación:** cada intento (o cada entidad en el radio) tiene un **% de probabilidad de revelación**; no todo lo oculto aparece seguro al primer uso.
 - **Radio:** alcance limitado (valor exacto / si escala con Kanohi u otros bonuses — a definir al implementar).
 - **UI / controles:** a definir en implementación (input, feedback visual del radio, medidor si aplica).
@@ -127,7 +126,8 @@ flowchart TB
 
 ### Mecánicas pendiente:
 
-- Funcionalidad de los Suva (storage de kanohi y herramientas?)
+- Inventario limitado: La capacidad para almacenar items es limitada.
+- Funcionalidad de los Suva: funciona como un almacen de items (storage de kanohi y herramientas), y si el suva pertenedce al elemento del jugador puede conectar las Kanohi guardadas consigo mismo, para utilizar los poderes de éstas aunque esté lejos. Sirve para guardar la partida (al igual que en otros lugares aún no definidos)
 
 ---
 
@@ -135,10 +135,10 @@ flowchart TB
 
 | ID | Capítulo | Estado |
 |----|----------|--------|
-| `ch0_prologue` | **Search for Power** — Northern Continent, pre-reclutamiento | En diseño (mapa + Main esbozada; ítems/búsqueda en docs) |
-| `ch1_recruit` | Reclutamiento / llegada al rol en Metru Nui | Pendiente |
-| `ch2_mangai` | Arco Toa Mangai en Metru Nui | Pendiente |
-| `ch3_dragon` | Confrontación / encierro del Kanohi Dragon | Pendiente |
+| `ch0_prologue` | **Search for Power** — Northern Continent + reclutamiento Mangai | En diseño (mapa + Main esbozada; ítems/búsqueda en docs) |
+| `ch1_mangai` | Arco Toa Mangai en Metru Nui. Acto 1 | Pendiente |
+| `ch2_dragon` | Primera confrontación con el del Kanohi Dragon. Acto 2 | Pendiente |
+| `ch3_hunters` | Segunda confrontación con el del Kanohi Dragon. Acto 3 | Pendiente |
 
 Rellenar filas y misiones concretas solo cuando el autor las escriba (p. ej. en `content/` o tablas en este doc).
 
@@ -154,7 +154,9 @@ Proyecto personal de hobbie. Bionicle / LEGO son marcas de terceros; esta es una
 
 | Fecha | Cambio |
 |-------|--------|
-| 2026-07-21 | Primera constancia: Mangai / Lhikan, prólogo Northern Continent, Kanohi + elemental + búsqueda, Main única + eventos de mapa |
+| 2026-07-21 | Primera constancia: Mangai / Lhikan, prólogo Northern Continent, Kanohi + elemental + búsqueda, Main + eventos de mapa |
 | 2026-07-22 | Lore: fidelidad al canon + licencias mínimas en huecos; Mapa Global/Local, viaje solo por nodos, desbloqueo gradual; plantilla Wahi/Koro |
 | 2026-08-11 | Mapa Global = overworld por áreas + nexos `pass` (ya no fast travel puro pin→teleporte) |
 | 2026-08-12 | Cap. 0 titulado **Search for Power**; búsqueda = revelar ocultos en radio con %; catálogo ítems de diseño |
+| 2026-09-13 | Reclutamiento forma parte de `ch0_prologue` (Search for Power), no capítulo aparte |
+| 2026-09-14 | Docs prólogo: zonas `zn_*`; quests `pq_lk_*` / `pq_nk_*` / `pq_nh_*` (una Main por jugable); flags `f_acc_road`; escena Korin `local_korin` |

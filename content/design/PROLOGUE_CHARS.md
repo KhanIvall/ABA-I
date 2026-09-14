@@ -34,7 +34,7 @@ Una fila por personaje con diálogo o función en el prólogo. `id_nodo` = dónd
 | `npc_taibo` | Taibo | `toa` |  |  | no | Toa de lo Verde. Porta una Great Kanohi Nuvi `item_nuvi_great`. Viene del sur del Universo Matoran con su fiel amigo Ruados |
 | `npc_001` | Taruhi | `matoran` | `nc_ga_koro` | orienta a Lhikan tras llegar. Forma parte de Main quest | sí | Porta una Noble Kanohi Huna `item_huna_noble` |
 | `npc_002` | Volog | `turaga` | `nc_le_koro` | informa del altercado en el Claro. Forma parte de Main quest | sí | Porta una Noble Kanohi Kakama `item_kakama_noble` |
-| `npc_003` | Ferin | `turaga` | `nc_ta_koro` | Infotrma sobre el movimiento de los criminales hacia el norte | sí | Porta una Noble Kanohi Akaku `item_akaku_noble` |
+| `npc_003` | Ferin | `turaga` | `nc_ta_koro` | Informa sobre el movimiento de los criminales hacia el norte | sí | Porta una Noble Kanohi Akaku `item_akaku_noble` |
 
 **Tipos sugeridos:** `matoran` · `toa` · `turaga` · `rahkshi` · `otro`
 
@@ -44,13 +44,13 @@ Una fila por personaje con diálogo o función en el prólogo. `id_nodo` = dónd
 
 Quién importa en qué beat de la Main (ids de `PROLOGUE_QUESTS.md`).
 
-| id_misión (`pq_...`) | personajes implicados (`id`) | nota |
+| id_misión (`pq_lk_...`) | personajes implicados (`id`) | nota |
 |----------------------|------------------------------|------|
-| `pq_001` | `npc_001` | termina la quest |
-| `pq_002` | `npc_001` | da la quest |
-| `pq_002` | `npc_002` | termina la quest |
-| `pq_003` | `npc_002` | da la quest |
-| `pq_003` | `npc_atuka` | termina la quest |
+| `pq_lk_001` | `npc_001` | termina la quest |
+| `pq_lk_002` | `npc_001` | da la quest |
+| `pq_lk_002` | `npc_002` | termina la quest |
+| `pq_lk_003` | `npc_002` | da la quest |
+| `pq_lk_003` | `npc_atuka` | termina la quest |
 
 ---
 
@@ -58,6 +58,6 @@ Quién importa en qué beat de la Main (ids de `PROLOGUE_QUESTS.md`).
 
 | Área | Estado |
 |------|--------|
-| Jugable | Lhikan |
+| Jugables | Lhikan, Naho, Nidhiki — **definir primero: Lhikan** |
 | NPCs Ga-Koro (inicio) | **Pendiente autor** |
 | Resto del prólogo | **Pendiente autor** |
